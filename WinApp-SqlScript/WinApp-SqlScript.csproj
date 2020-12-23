@@ -8,9 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WinApp_SqlScript</RootNamespace>
     <AssemblyName>WinApp-SqlScript</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,11 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="SqlScript-Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SqlScript-Login.Designer.cs">
+      <DependentUpon>SqlScript-Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlScript-Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SqlScript-Main.Designer.cs">
+      <DependentUpon>SqlScript-Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,7 +69,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SqlScript-Login.resx">
+      <DependentUpon>SqlScript-Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqlScript-Main.resx">
+      <DependentUpon>SqlScript-Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +87,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScriptService\SQLScript-SERVICE.csproj">
+      <Project>{8089845d-c982-4af6-9485-0def00f74fea}</Project>
+      <Name>SQLScript-SERVICE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlScript-MODEL\SqlScript-MODEL.csproj">
+      <Project>{5c10806c-b32e-422f-a4d3-dcc70dcd67b8}</Project>
+      <Name>SqlScript-MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,11 +9,21 @@ using System.Windows.Forms;
 
 namespace WinApp_SqlScript
 {
-    public partial class Form1 : Form
+    public partial class SqlScriptMain : Form
     {
-        public Form1()
+        public SqlScriptMain()
         {
             InitializeComponent();
+        }
+
+        private void SqlScriptMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
