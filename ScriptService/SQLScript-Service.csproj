@@ -46,16 +46,16 @@
     <Compile Include="Class1.cs" />
     <Compile Include="ServerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerService.cs" />
+    <Compile Include="XmlManagerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SqlScript-BLL\SqlScript-BLL.csproj">
       <Project>{0536fcb1-be8d-4b33-b04b-19629100c036}</Project>
       <Name>SqlScript-BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SQLScript-IScriptService\SQLScript-ISCRIPTSERVICE.csproj">
+    <ProjectReference Include="..\SQLScript-IScriptService\SqLScript-ISERVICE.csproj">
       <Project>{67cc5175-dad2-486b-8ae7-4ed9baece6b3}</Project>
-      <Name>SQLScript-ISCRIPTSERVICE</Name>
+      <Name>SqLScript-ISERVICE</Name>
     </ProjectReference>
     <ProjectReference Include="..\SqlScript-MODEL\SqlScript-MODEL.csproj">
       <Project>{5c10806c-b32e-422f-a4d3-dcc70dcd67b8}</Project>

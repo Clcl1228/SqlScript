@@ -89,9 +89,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScriptService\SQLScript-SERVICE.csproj">
+    <ProjectReference Include="..\ScriptService\SqLScript-SERVICE.csproj">
       <Project>{8089845d-c982-4af6-9485-0def00f74fea}</Project>
-      <Name>SQLScript-SERVICE</Name>
+      <Name>SqLScript-SERVICE</Name>
     </ProjectReference>
     <ProjectReference Include="..\SqlScript-MODEL\SqlScript-MODEL.csproj">
       <Project>{5c10806c-b32e-422f-a4d3-dcc70dcd67b8}</Project>

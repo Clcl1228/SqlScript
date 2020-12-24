@@ -16,6 +16,8 @@ namespace ScriptService
         {
             
         }
+
+        [Obsolete]
         public bool IsConnection()
         {
             return serverConnection.openConnection();

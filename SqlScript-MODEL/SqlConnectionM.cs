@@ -17,13 +17,17 @@ namespace SqlScript_MODEL
         /// </summary>
         public static string dataScore = string.Empty;
         /// <summary>
+        /// 数据库
+        /// </summary>
+        public static string cataLog = string.Empty;
+        /// <summary>
         /// 连接字符串（SqlServer）
         /// </summary>
-        public static string SqlConnString = "User ID={0};Password={1};Initial Catalog=PT2_JGEQ_QW;Data Source={2};";
+        public static string SqlConnString = "User ID={0};Password={1};Initial Catalog={3};Data Source={2};";
         /// <summary>
         /// 连接字符串（Oracle）
         /// </summary>
-        public static string OracleConnString = "data source={2};password={1};persist security info=True;user id={0}";
+        public static string OracleConnString = "data source={2}"+"/"+"{3};password={1};persist security info=True;user id={0}";
         /// <summary>
         /// 数据库类型
         /// </summary>

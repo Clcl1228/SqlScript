@@ -29,6 +29,8 @@ namespace SqlScript_BLL
         {
             this.connString = SqlConnectionM.ServerType == "SqlServer" ? SqlConnectionM.SqlConnString : SqlConnectionM.OracleConnString;
         }
+
+        [Obsolete]
         public bool openConnection()
         {
             bool result = false;
@@ -43,6 +45,8 @@ namespace SqlScript_BLL
             }
             return result;
         }
+
+        [Obsolete]
         public bool TestServerLoad(string type)
         {
             bool result = false;
