@@ -66,7 +66,9 @@ namespace WinApp_SqlScript
 
         private void btnCreateSqlO_Click(object sender, EventArgs e)
         {
-
+            generateService = new GenerateSqlService(new GenerateOracleString());
+            string msg = generateService.CreateSqlString(gvdataRow);
+            txtSql.Text = msg;
         }
 
         private void btnClearSql_Click(object sender, EventArgs e)
@@ -84,7 +86,6 @@ namespace WinApp_SqlScript
             this.gvdataRow.Rows.Add();
         }
 
-        [Obsolete]
         private void SqlScript_Add_Load(object sender, EventArgs e)
         {
             if (SqlConnectionM.Status=="1")
@@ -116,6 +117,14 @@ namespace WinApp_SqlScript
         private void cboTable_SelectedValueChanged(object sender, EventArgs e)
         {
             SqlConnectionM.TableName = this.cboTable.SelectedValue.ToString().Trim();
+        }
+
+        private void gvdataRow_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            //this.cboFieldType.DataSource = Enum.GetValues(typeof(FieldTypes.SqlFieldType));
+            //this.cboFieldType.ValueType = SqlConnectionM.ServerType=="SqlServer"?typeof(FieldTypes.SqlFieldType): 
+            //    SqlConnectionM.ServerType == "Oracle"? typeof(FieldTypes.OracleFieldType): typeof(FieldTypes.AllType);
+            //this.cboFieldType.DataPropertyName = "FieldType";
         }
     }
 }

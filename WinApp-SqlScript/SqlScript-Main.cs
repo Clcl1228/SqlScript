@@ -42,7 +42,7 @@ namespace WinApp_SqlScript
 
             if (m.Msg == WM_SYSCOMMAND && ((int)m.WParam == SC_CLOSE))
             {
-                this._login.Close();
+                this._login.Show();
             }
             base.WndProc(ref m);
         }

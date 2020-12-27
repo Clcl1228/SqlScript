@@ -44,7 +44,7 @@ namespace WinApp_SqlScript
             this.btnClearGvData = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
             this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.是否必填 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -70,7 +70,7 @@ namespace WinApp_SqlScript
             this.gvdataRow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvdataRow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.字段名,
-            this.字段类型,
+            this.cboFieldType,
             this.字段注释,
             this.表名,
             this.是否必填,
@@ -82,6 +82,7 @@ namespace WinApp_SqlScript
             this.gvdataRow.TabIndex = 0;
             this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
+            this.gvdataRow.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gvdataRow_RowsAdded);
             // 
             // groupSql
             // 
@@ -194,11 +195,12 @@ namespace WinApp_SqlScript
             this.字段名.Name = "字段名";
             this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // 字段类型
+            // cboFieldType
             // 
-            this.字段类型.HeaderText = "字段类型";
-            this.字段类型.Name = "字段类型";
-            this.字段类型.Width = 80;
+            this.cboFieldType.HeaderText = "字段类型";
+            this.cboFieldType.Name = "cboFieldType";
+            this.cboFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cboFieldType.Width = 80;
             // 
             // 字段注释
             // 
@@ -265,7 +267,7 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.ToolStripMenuItem 添加行ToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn 字段名;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 字段类型;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cboFieldType;
         private System.Windows.Forms.DataGridViewTextBoxColumn 字段注释;
         private System.Windows.Forms.DataGridViewTextBoxColumn 表名;
         private System.Windows.Forms.DataGridViewCheckBoxColumn 是否必填;

@@ -701,5 +701,16 @@ namespace DBHelperOracle
             }
         }
         #endregion
+
+
+        public static bool ExistsTable(string tableName)
+        {
+            string sql = @"select count(1) from tab where tname ='"+ tableName + "'";
+            object num=ExecuteQueryScalar(sql, new OracleParameter[] { new OracleParameter() });
+            if (num.ToString() == "1")
+                return true;
+            else
+                return false;
+        }
     }
 }

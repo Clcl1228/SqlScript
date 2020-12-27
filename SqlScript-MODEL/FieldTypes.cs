@@ -23,5 +23,17 @@ namespace SqlScript_MODEL
             date,
             number
         }
+
+        public enum AllType
+        {
+            varchar,
+            nvarchar,
+            numeric,
+            datetime,
+            varchar2,
+            nvarchar2,
+            date,
+            number
+        }
     }
 }
