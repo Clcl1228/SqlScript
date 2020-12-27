@@ -29,49 +29,75 @@ namespace WinApp_SqlScript
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.groupBoxLogin = new System.Windows.Forms.GroupBox();
-            this.groupBoxLogin.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.新增字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnLogin
+            // menuStrip1
             // 
-            this.btnLogin.Location = new System.Drawing.Point(41, 31);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(123, 47);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "数据库连接";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.新增字段ToolStripMenuItem,
+            this.删除字段ToolStripMenuItem,
+            this.更新字段ToolStripMenuItem,
+            this.查询ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1220, 25);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // groupBoxLogin
+            // 新增字段ToolStripMenuItem
             // 
-            this.groupBoxLogin.Controls.Add(this.btnLogin);
-            this.groupBoxLogin.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxLogin.Name = "groupBoxLogin";
-            this.groupBoxLogin.Size = new System.Drawing.Size(200, 100);
-            this.groupBoxLogin.TabIndex = 1;
-            this.groupBoxLogin.TabStop = false;
-            this.groupBoxLogin.Text = "数据库连接";
+            this.新增字段ToolStripMenuItem.Name = "新增字段ToolStripMenuItem";
+            this.新增字段ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.新增字段ToolStripMenuItem.Text = "新增字段";
+            this.新增字段ToolStripMenuItem.Click += new System.EventHandler(this.新增字段ToolStripMenuItem_Click);
+            // 
+            // 删除字段ToolStripMenuItem
+            // 
+            this.删除字段ToolStripMenuItem.Name = "删除字段ToolStripMenuItem";
+            this.删除字段ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.删除字段ToolStripMenuItem.Text = "删除字段";
+            // 
+            // 更新字段ToolStripMenuItem
+            // 
+            this.更新字段ToolStripMenuItem.Name = "更新字段ToolStripMenuItem";
+            this.更新字段ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.更新字段ToolStripMenuItem.Text = "更新字段";
+            // 
+            // 查询ToolStripMenuItem
+            // 
+            this.查询ToolStripMenuItem.Name = "查询ToolStripMenuItem";
+            this.查询ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.查询ToolStripMenuItem.Text = "查询";
             // 
             // SqlScriptMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBoxLogin);
+            this.ClientSize = new System.Drawing.Size(1220, 461);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "SqlScriptMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.SqlScriptMain_Load);
-            this.groupBoxLogin.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.GroupBox groupBoxLogin;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 新增字段ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除字段ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 更新字段ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查询ToolStripMenuItem;
     }
 }
 

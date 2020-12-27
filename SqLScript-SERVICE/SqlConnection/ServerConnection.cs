@@ -1,13 +1,13 @@
 ﻿using SqlScript_MODEL;
 using System;
 using System.Collections.Generic;
-using System.Data.OracleClient;
+using Oracle.ManagedDataAccess.Client;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SqlScript_BLL
+namespace ScriptService
 {
     public class ServerConnection
     {
@@ -27,16 +27,18 @@ namespace SqlScript_BLL
         private string connString = string.Empty;
         public ServerConnection()
         {
-            this.connString = SqlConnectionM.ServerType == "SqlServer" ? SqlConnectionM.SqlConnString : SqlConnectionM.OracleConnString;
+            
         }
 
         [Obsolete]
         public bool openConnection()
         {
+            this.connString = SqlConnectionM.ServerType == "SqlServer" ? SqlConnectionM.SqlConnString : SqlConnectionM.OracleConnString;
+
             bool result = false;
             try
             {
-                TestServerLoad(SqlConnectionM.ServerType);
+                result=TestServerLoad(SqlConnectionM.ServerType);
             }
             catch (Exception exception)
             {
@@ -51,7 +53,7 @@ namespace SqlScript_BLL
         {
             bool result = false;
             if (type == "SqlServer")
-            {
+                {
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
                     conn.Open();

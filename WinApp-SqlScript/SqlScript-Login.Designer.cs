@@ -30,10 +30,10 @@ namespace WinApp_SqlScript
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnIn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKu = new System.Windows.Forms.TextBox();
             this.comBoxServer = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnTest = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,10 +48,10 @@ namespace WinApp_SqlScript
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnIn);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtKu);
             this.groupBox1.Controls.Add(this.comBoxServer);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnTest);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.button1);
@@ -63,10 +63,20 @@ namespace WinApp_SqlScript
             this.groupBox1.Controls.Add(this.txtUserName);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 306);
+            this.groupBox1.Size = new System.Drawing.Size(452, 243);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "登陆";
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(343, 113);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(73, 30);
+            this.btnIn.TabIndex = 14;
+            this.btnIn.Text = "直接进入";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // label5
             // 
@@ -82,45 +92,33 @@ namespace WinApp_SqlScript
             // 
             // txtKu
             // 
-            this.txtKu.Location = new System.Drawing.Point(123, 150);
+            this.txtKu.Location = new System.Drawing.Point(108, 150);
             this.txtKu.Name = "txtKu";
-            this.txtKu.Size = new System.Drawing.Size(133, 21);
+            this.txtKu.Size = new System.Drawing.Size(181, 21);
             this.txtKu.TabIndex = 12;
             // 
             // comBoxServer
             // 
             this.comBoxServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comBoxServer.FormattingEnabled = true;
-            this.comBoxServer.Location = new System.Drawing.Point(123, 195);
+            this.comBoxServer.Location = new System.Drawing.Point(128, 198);
             this.comBoxServer.Name = "comBoxServer";
-            this.comBoxServer.Size = new System.Drawing.Size(133, 20);
+            this.comBoxServer.Size = new System.Drawing.Size(124, 20);
             this.comBoxServer.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(33, 196);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 14);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "数据库版本:";
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(108, 236);
+            this.btnTest.Location = new System.Drawing.Point(343, 71);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(73, 30);
             this.btnTest.TabIndex = 8;
-            this.btnTest.Text = "测试连接";
+            this.btnTest.Text = "连接";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(16, 236);
+            this.btnSave.Location = new System.Drawing.Point(343, 28);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(73, 30);
             this.btnSave.TabIndex = 7;
@@ -130,7 +128,7 @@ namespace WinApp_SqlScript
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(203, 236);
+            this.button1.Location = new System.Drawing.Point(343, 155);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 30);
             this.button1.TabIndex = 6;
@@ -152,9 +150,9 @@ namespace WinApp_SqlScript
             // 
             // txtDataScore
             // 
-            this.txtDataScore.Location = new System.Drawing.Point(123, 108);
+            this.txtDataScore.Location = new System.Drawing.Point(108, 108);
             this.txtDataScore.Name = "txtDataScore";
-            this.txtDataScore.Size = new System.Drawing.Size(133, 21);
+            this.txtDataScore.Size = new System.Drawing.Size(181, 21);
             this.txtDataScore.TabIndex = 4;
             // 
             // label2
@@ -171,9 +169,9 @@ namespace WinApp_SqlScript
             // 
             // txtPassWord
             // 
-            this.txtPassWord.Location = new System.Drawing.Point(123, 66);
+            this.txtPassWord.Location = new System.Drawing.Point(108, 66);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(133, 21);
+            this.txtPassWord.Size = new System.Drawing.Size(181, 21);
             this.txtPassWord.TabIndex = 2;
             // 
             // label1
@@ -190,16 +188,16 @@ namespace WinApp_SqlScript
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(123, 25);
+            this.txtUserName.Location = new System.Drawing.Point(108, 28);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(133, 21);
+            this.txtUserName.Size = new System.Drawing.Size(181, 21);
             this.txtUserName.TabIndex = 0;
             // 
             // SqlScript_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 330);
+            this.ClientSize = new System.Drawing.Size(481, 263);
             this.Controls.Add(this.groupBox1);
             this.Name = "SqlScript_Login";
             this.Text = "数据库连接";
@@ -215,7 +213,6 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button1;
@@ -226,5 +223,6 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.ComboBox comBoxServer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKu;
+        private System.Windows.Forms.Button btnIn;
     }
 }

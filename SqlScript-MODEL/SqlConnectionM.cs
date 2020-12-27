@@ -27,10 +27,26 @@ namespace SqlScript_MODEL
         /// <summary>
         /// 连接字符串（Oracle）
         /// </summary>
-        public static string OracleConnString = "data source={2}"+"/"+"{3};password={1};persist security info=True;user id={0}";
+        public static string OracleConnString = @"Data Source=(DESCRIPTION =
+                                                                    (ADDRESS_LIST =
+                                                                      (ADDRESS = (PROTOCOL = TCP)(HOST = {2})(PORT = 1521))
+                                                                    )
+                                                                    (CONNECT_DATA =
+                                                                      (SID = {2})
+                                                                      (SERVER = DEDICATED)
+                                                                    )
+                                                                  ); User Id = {0}; Password ={1}; ";
         /// <summary>
         /// 数据库类型
         /// </summary>
         public static string ServerType = string.Empty;
+        /// <summary>
+        /// 表名
+        /// </summary>
+        public static string TableName = string.Empty;
+        /// <summary>
+        /// 连接状态
+        /// </summary>
+        public static string Status = string.Empty;
     }
 }
