@@ -21,6 +21,7 @@ namespace WinApp_SqlScript
         public object GenerateSqlServiceString { get; private set; }
 
         GenerateSqlService generateService;
+        DataService dataService = new DataService();
         public SqlScript_Add()
         {
             InitializeComponent();
@@ -99,8 +100,7 @@ namespace WinApp_SqlScript
                 }
                 else if(SqlConnectionM.ServerType == "Oracle")
                 {
-                    string sql = @"select t.table_name from user_tables t;";
-                    OracleDataReader dataReader = DBHelperOracle.OracleHepler.ExecuteDataReader(sql, false, new OracleParameter[] { new OracleParameter()}) ;
+                    OracleDataReader dataReader = dataService.GetOracleAllTable();
                     dt.Load(dataReader);
                     dataReader.Close();
                 }

@@ -58,6 +58,12 @@
     <Compile Include="SqlScript-Add.Designer.cs">
       <DependentUpon>SqlScript-Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlScript-Del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SqlScript-Del.Designer.cs">
+      <DependentUpon>SqlScript-Del.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlScript-Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <EmbeddedResource Include="SqlScript-Add.resx">
       <DependentUpon>SqlScript-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqlScript-Del.resx">
+      <DependentUpon>SqlScript-Del.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SqlScript-Login.resx">
       <DependentUpon>SqlScript-Login.cs</DependentUpon>

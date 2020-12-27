@@ -884,6 +884,31 @@ namespace DBUtility
                 throw e;
             }
         }
+
+        public static DataTable GetDataTableToDataReader(SqlDataReader dataReader)
+        {
+            DataTable datatable = new DataTable();
+            for (int i = 0; i < dataReader.FieldCount; i++)
+            {
+                DataColumn myDataColumn = new DataColumn();
+                myDataColumn.DataType = dataReader.GetFieldType(i);
+                myDataColumn.ColumnName = dataReader.GetName(i);
+                datatable.Columns.Add(myDataColumn);
+            }
+
+            while (dataReader.Read())
+            {
+                DataRow myDataRow = datatable.NewRow();
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    myDataRow[i] = dataReader[i].ToString();
+                }
+                datatable.Rows.Add(myDataRow);
+                myDataRow = null;
+            }
+            dataReader.Close();
+            return datatable;
+        }
     }
 }
 

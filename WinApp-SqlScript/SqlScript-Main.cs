@@ -13,6 +13,7 @@ namespace WinApp_SqlScript
     {
         SqlScript_Login _login;
         SqlScript_Add Add;
+        SqlScript_Del del;
         public SqlScriptMain(SqlScript_Login login)
         {
             InitializeComponent();
@@ -26,13 +27,17 @@ namespace WinApp_SqlScript
 
         private void 新增字段ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.IsMdiContainer = true;
             if (Add == null)
             {
+                this.IsMdiContainer = true;
                 Add = new SqlScript_Add();
                 Add.MdiParent = this;
                 Add.Show();
                 Add.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                Add.BringToFront();
             }
         }
         protected override void WndProc(ref Message m)
@@ -45,6 +50,22 @@ namespace WinApp_SqlScript
                 this._login.Show();
             }
             base.WndProc(ref m);
+        }
+
+        private void 删除字段ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (del == null)
+            {
+                this.IsMdiContainer = true;
+                del = new SqlScript_Del();
+                del.MdiParent = this;
+                del.Show();
+                del.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                del.BringToFront();
+            }
         }
     }
 }

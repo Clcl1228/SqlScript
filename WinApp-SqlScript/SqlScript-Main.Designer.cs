@@ -62,6 +62,7 @@ namespace WinApp_SqlScript
             this.删除字段ToolStripMenuItem.Name = "删除字段ToolStripMenuItem";
             this.删除字段ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.删除字段ToolStripMenuItem.Text = "删除字段";
+            this.删除字段ToolStripMenuItem.Click += new System.EventHandler(this.删除字段ToolStripMenuItem_Click);
             // 
             // 更新字段ToolStripMenuItem
             // 

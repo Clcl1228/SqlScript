@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DataService.cs" />
     <Compile Include="DBHelper\DBUtility.cs" />
     <Compile Include="DBHelper\OrcDBUtillty.cs" />
     <Compile Include="Generate\GenerateSqlService.cs" />

@@ -43,12 +43,12 @@ namespace WinApp_SqlScript
             this.btnClearSql = new System.Windows.Forms.Button();
             this.btnClearGvData = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
-            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.是否必填 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.默认值 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.是否必填 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
             this.groupSql.SuspendLayout();
@@ -189,29 +189,10 @@ namespace WinApp_SqlScript
             this.cboTable.TabIndex = 8;
             this.cboTable.SelectedValueChanged += new System.EventHandler(this.cboTable_SelectedValueChanged);
             // 
-            // 字段名
+            // 默认值
             // 
-            this.字段名.HeaderText = "字段名";
-            this.字段名.Name = "字段名";
-            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // cboFieldType
-            // 
-            this.cboFieldType.HeaderText = "字段类型";
-            this.cboFieldType.Name = "cboFieldType";
-            this.cboFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cboFieldType.Width = 80;
-            // 
-            // 字段注释
-            // 
-            this.字段注释.HeaderText = "字段注释";
-            this.字段注释.Name = "字段注释";
-            // 
-            // 表名
-            // 
-            this.表名.HeaderText = "表名(默认当前表)";
-            this.表名.Name = "表名";
-            this.表名.Width = 130;
+            this.默认值.HeaderText = "默认值";
+            this.默认值.Name = "默认值";
             // 
             // 是否必填
             // 
@@ -220,10 +201,29 @@ namespace WinApp_SqlScript
             this.是否必填.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.是否必填.Width = 70;
             // 
-            // 默认值
+            // 表名
             // 
-            this.默认值.HeaderText = "默认值";
-            this.默认值.Name = "默认值";
+            this.表名.HeaderText = "表名(默认当前表)";
+            this.表名.Name = "表名";
+            this.表名.Width = 130;
+            // 
+            // 字段注释
+            // 
+            this.字段注释.HeaderText = "字段注释";
+            this.字段注释.Name = "字段注释";
+            // 
+            // cboFieldType
+            // 
+            this.cboFieldType.HeaderText = "字段类型";
+            this.cboFieldType.Name = "cboFieldType";
+            this.cboFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cboFieldType.Width = 80;
+            // 
+            // 字段名
+            // 
+            this.字段名.HeaderText = "字段名";
+            this.字段名.Name = "字段名";
+            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // SqlScript_Add
             // 
