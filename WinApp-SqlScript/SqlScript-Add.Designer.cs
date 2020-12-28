@@ -32,6 +32,12 @@ namespace WinApp_SqlScript
             this.components = new System.ComponentModel.Container();
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
+            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.是否必填 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.默认值 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupSql = new System.Windows.Forms.GroupBox();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.btnAddRow = new System.Windows.Forms.Button();
@@ -43,12 +49,7 @@ namespace WinApp_SqlScript
             this.btnClearSql = new System.Windows.Forms.Button();
             this.btnClearGvData = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
-            this.默认值 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.是否必填 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
             this.groupSql.SuspendLayout();
@@ -84,6 +85,42 @@ namespace WinApp_SqlScript
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
             this.gvdataRow.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gvdataRow_RowsAdded);
             // 
+            // 字段名
+            // 
+            this.字段名.HeaderText = "字段名";
+            this.字段名.Name = "字段名";
+            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // cboFieldType
+            // 
+            this.cboFieldType.HeaderText = "字段类型";
+            this.cboFieldType.Name = "cboFieldType";
+            this.cboFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cboFieldType.Width = 80;
+            // 
+            // 字段注释
+            // 
+            this.字段注释.HeaderText = "字段注释";
+            this.字段注释.Name = "字段注释";
+            // 
+            // 表名
+            // 
+            this.表名.HeaderText = "表名(默认当前表)";
+            this.表名.Name = "表名";
+            this.表名.Width = 130;
+            // 
+            // 是否必填
+            // 
+            this.是否必填.HeaderText = "是否必填";
+            this.是否必填.Name = "是否必填";
+            this.是否必填.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.是否必填.Width = 70;
+            // 
+            // 默认值
+            // 
+            this.默认值.HeaderText = "默认值";
+            this.默认值.Name = "默认值";
+            // 
             // groupSql
             // 
             this.groupSql.Controls.Add(this.txtSql);
@@ -106,7 +143,7 @@ namespace WinApp_SqlScript
             // btnAddRow
             // 
             this.btnAddRow.AccessibleName = "表名";
-            this.btnAddRow.Location = new System.Drawing.Point(634, 115);
+            this.btnAddRow.Location = new System.Drawing.Point(634, 94);
             this.btnAddRow.Name = "btnAddRow";
             this.btnAddRow.Size = new System.Drawing.Size(100, 23);
             this.btnAddRow.TabIndex = 2;
@@ -117,7 +154,7 @@ namespace WinApp_SqlScript
             // btnCreateSqlO
             // 
             this.btnCreateSqlO.AccessibleName = "表名";
-            this.btnCreateSqlO.Location = new System.Drawing.Point(634, 229);
+            this.btnCreateSqlO.Location = new System.Drawing.Point(634, 187);
             this.btnCreateSqlO.Name = "btnCreateSqlO";
             this.btnCreateSqlO.Size = new System.Drawing.Size(100, 23);
             this.btnCreateSqlO.TabIndex = 4;
@@ -128,7 +165,7 @@ namespace WinApp_SqlScript
             // button2
             // 
             this.button2.AccessibleName = "表名";
-            this.button2.Location = new System.Drawing.Point(634, 170);
+            this.button2.Location = new System.Drawing.Point(634, 141);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 5;
@@ -189,47 +226,23 @@ namespace WinApp_SqlScript
             this.cboTable.TabIndex = 8;
             this.cboTable.SelectedValueChanged += new System.EventHandler(this.cboTable_SelectedValueChanged);
             // 
-            // 默认值
+            // btnSave
             // 
-            this.默认值.HeaderText = "默认值";
-            this.默认值.Name = "默认值";
-            // 
-            // 是否必填
-            // 
-            this.是否必填.HeaderText = "是否必填";
-            this.是否必填.Name = "是否必填";
-            this.是否必填.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.是否必填.Width = 70;
-            // 
-            // 表名
-            // 
-            this.表名.HeaderText = "表名(默认当前表)";
-            this.表名.Name = "表名";
-            this.表名.Width = 130;
-            // 
-            // 字段注释
-            // 
-            this.字段注释.HeaderText = "字段注释";
-            this.字段注释.Name = "字段注释";
-            // 
-            // cboFieldType
-            // 
-            this.cboFieldType.HeaderText = "字段类型";
-            this.cboFieldType.Name = "cboFieldType";
-            this.cboFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cboFieldType.Width = 80;
-            // 
-            // 字段名
-            // 
-            this.字段名.HeaderText = "字段名";
-            this.字段名.Name = "字段名";
-            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSave.AccessibleName = "表名";
+            this.btnSave.Location = new System.Drawing.Point(634, 234);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 23);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "保存到文件";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SqlScript_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 421);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboTable);
             this.Controls.Add(this.btnClearGvData);
             this.Controls.Add(this.btnClearSql);
@@ -272,5 +285,6 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.DataGridViewTextBoxColumn 表名;
         private System.Windows.Forms.DataGridViewCheckBoxColumn 是否必填;
         private System.Windows.Forms.DataGridViewTextBoxColumn 默认值;
+        private System.Windows.Forms.Button btnSave;
     }
 }

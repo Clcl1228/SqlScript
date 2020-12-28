@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScriptService.File;
 
 namespace WinApp_SqlScript
 {
@@ -125,6 +126,11 @@ namespace WinApp_SqlScript
             //this.cboFieldType.ValueType = SqlConnectionM.ServerType=="SqlServer"?typeof(FieldTypes.SqlFieldType): 
             //    SqlConnectionM.ServerType == "Oracle"? typeof(FieldTypes.OracleFieldType): typeof(FieldTypes.AllType);
             //this.cboFieldType.DataPropertyName = "FieldType";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFile.SaveFilesToText(txtSql.Text.ToString().Trim());
         }
     }
 }

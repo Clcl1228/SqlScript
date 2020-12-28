@@ -9,13 +9,12 @@ using SqlScript_MODEL;
 
 namespace DBHelperOracle
 {
-    public class OracleHepler
+    public abstract class OracleHepler
     {
         /// <summary>
         /// 在构造函数中初始化其内容
         /// </summary>
-        public static string _connectionString;
-
+        public static string _connectionString = SqlConnectionM.OracleConnString;
         //public static SqlConnection _sqlConnection = new SqlConnection(new SqlHelper()._connectionString);new SqlHelper()
         public OracleHepler()
         {
@@ -297,7 +296,7 @@ namespace DBHelperOracle
         /// <param name="paras">SqLParameter参数列表，0个或多个参数</param>
         /// <returns></returns>
 
-        public static OracleDataReader ExecuteDataReader(string commandText, bool isProcedure, params OracleParameter[] paras)
+        public static OracleDataReader ExecuteDataReader(string commandText, bool isProcedure)
         {
             OracleConnection con = new OracleConnection(_connectionString);
             OracleCommand cmd = new OracleCommand(commandText, con);
@@ -310,12 +309,6 @@ namespace DBHelperOracle
             {
                 cmd.CommandType = CommandType.Text;
             }
-
-            foreach (OracleParameter para in paras)
-            {
-                cmd.Parameters.Add(para);
-            }
-
             try
             {
                 if (con.State != ConnectionState.Open)
@@ -339,9 +332,9 @@ namespace DBHelperOracle
         /// <param name="paras">SqLParameter参数列表，0个或多个参数</param>
         /// <returns></returns>
 
-        public OracleDataReader ExecuteDataReader(string commandText, params OracleParameter[] paras)
+        public OracleDataReader ExecuteDataReader(string commandText)
         {
-            return ExecuteDataReader(commandText, false, paras);
+            return ExecuteDataReader(commandText, false);
         }
 
         /// <summary>
@@ -552,7 +545,7 @@ namespace DBHelperOracle
         /// <returns></returns>
 
         
-        public static DataTable ExecuteDataTable(string commandText, bool isProcedure, params OracleParameter[] paras)
+        public static DataTable ExecuteDataTable(string commandText, bool isProcedure)
         {
             OracleConnection con = new OracleConnection(_connectionString);
             OracleCommand cmd = new OracleCommand(commandText, con);
@@ -566,12 +559,6 @@ namespace DBHelperOracle
             {
                 cmd.CommandType = CommandType.Text;
             }
-
-            foreach (OracleParameter para in paras)
-            {
-                cmd.Parameters.Add(para);
-            }
-
             try
             {
                 if (con.State != ConnectionState.Open)
@@ -602,9 +589,9 @@ namespace DBHelperOracle
         /// <param name="paras">SqLParameter参数列表，0个或多个参数</param>
         /// <returns></returns>
 
-        public static DataTable ExecuteDataTable(string commandText, params OracleParameter[] paras)
+        public static DataTable ExecuteDataTable(string commandText)
         {
-            return ExecuteDataTable(commandText, false, paras);
+            return ExecuteDataTable(commandText, false);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlScript_MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,17 +55,24 @@ namespace WinApp_SqlScript
 
         private void 删除字段ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (del == null)
+            if (SqlConnectionM.Status != "1")
             {
-                this.IsMdiContainer = true;
-                del = new SqlScript_Del();
-                del.MdiParent = this;
-                del.Show();
-                del.Dock = DockStyle.Fill;
+                throw new Exception("数据库未连接");
             }
             else
             {
-                del.BringToFront();
+                if (del == null)
+                {
+                    this.IsMdiContainer = true;
+                    del = new SqlScript_Del();
+                    del.MdiParent = this;
+                    del.Show();
+                    del.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    del.BringToFront();
+                }
             }
         }
     }

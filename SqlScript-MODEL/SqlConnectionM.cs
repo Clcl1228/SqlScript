@@ -21,21 +21,22 @@ namespace SqlScript_MODEL
         /// </summary>
         public static string cataLog = string.Empty;
         /// <summary>
+        /// 连接字符串M（SqlServer）
+        /// </summary>
+        public static string SqlConnStringM = "User ID={0};Password={1};Initial Catalog={3};Data Source={2};";
+        /// <summary>
         /// 连接字符串（SqlServer）
         /// </summary>
         public static string SqlConnString = "User ID={0};Password={1};Initial Catalog={3};Data Source={2};";
         /// <summary>
+        /// 连接字符串M（Oracle）
+        /// </summary>
+        public static string OracleConnStringM = @"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={2}) (PORT=1521)))(CONNECT_DATA=(SERVICE_NAME={3})));Persist Security Info=True;User Id={0}; Password={1}";
+
+        /// <summary>
         /// 连接字符串（Oracle）
         /// </summary>
-        public static string OracleConnString = @"Data Source=(DESCRIPTION =
-                                                                    (ADDRESS_LIST =
-                                                                      (ADDRESS = (PROTOCOL = TCP)(HOST = {2})(PORT = 1521))
-                                                                    )
-                                                                    (CONNECT_DATA =
-                                                                      (SID = {2})
-                                                                      (SERVER = DEDICATED)
-                                                                    )
-                                                                  ); User Id = {0}; Password ={1}; ";
+        public static string OracleConnString = @"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={2}) (PORT=1521)))(CONNECT_DATA=(SERVICE_NAME={3})));Persist Security Info=True;User Id={0}; Password={1}";
         /// <summary>
         /// 数据库类型
         /// </summary>

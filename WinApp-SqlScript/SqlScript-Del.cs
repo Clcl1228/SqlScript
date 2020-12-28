@@ -11,58 +11,88 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ScriptService;
+using System.IO;
+using ScriptService.File;
 
 namespace WinApp_SqlScript
 {
     public partial class SqlScript_Del : Form
     {
-        DataService dataService=new DataService();
+        DataService dataService = new DataService();
+        GenerateSqlService generateService;
         public SqlScript_Del()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         private void SqlScript_Del_Load(object sender, EventArgs e)
         {
-            if (SqlConnectionM.Status == "1")
+
+            DataTable dt = new DataTable();
+            if (SqlConnectionM.ServerType == "SqlServer")
             {
-                DataTable dt = new DataTable();
-                if (SqlConnectionM.ServerType == "SqlServer")
-                {
-                    SqlDataReader dataReader = DBUtility.DbHelperSQL.GetAllTable();
-                    dt.Load(dataReader);
-                    dataReader.Close();
-                }
-                else if (SqlConnectionM.ServerType == "Oracle")
-                {
-                    OracleDataReader dataReader = dataService.GetOracleAllTable();
-                    dt.Load(dataReader);
-                    dataReader.Close();
-                }
-
-                this.cboTable.DataSource = dt;
-                this.cboTable.DisplayMember = "name";
-                this.cboTable.ValueMember = "name";
-                this.FormBorderStyle = FormBorderStyle.None;
-
-                BindData();
-
+                SqlDataReader dataReader = DBUtility.DbHelperSQL.GetAllTable();
+                dt.Load(dataReader);
+                dataReader.Close();
             }
-            else
+            else if (SqlConnectionM.ServerType == "Oracle")
             {
-                throw new Exception("数据库未连接");
+                OracleDataReader dataReader = dataService.GetOracleAllTable();
+                dt.Load(dataReader);
+                dataReader.Close();
             }
+
+            this.cboTable.DataSource = dt;
+            this.cboTable.DisplayMember = "name";
+            this.cboTable.ValueMember = "name";
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            BindData();
         }
 
         private void BindData()
         {
-            DataTable dt = dataService.GetSqlServerDelFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
-            this.gvdataRow.DataSource = dt;
+            if(SqlConnectionM.ServerType == "SqlServer")
+            {
+                DataTable dt = dataService.GetSqlServerDelFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
+                this.gvdataRow.DataSource = dt;
+            }
+            else
+            {
+                DataTable dt = dataService.GetOracleDelFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
+                this.gvdataRow.DataSource = dt;
+            }
+            
         }
 
         private void cboTable_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindData();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            generateService = new GenerateSqlService(new GenerateSqlServiceDelString());
+            string msg = generateService.CreateSqlString(gvdataRow);
+            txtSql.Text = msg;
+        }
+
+        private void btnClearSql_Click(object sender, EventArgs e)
+        {
+            this.txtSql.Clear();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFile.SaveFilesToText(txtSql.Text.ToString().Trim());
+        }
+
+        private void btnCreateSqlO_Click(object sender, EventArgs e)
+        {
+            generateService = new GenerateSqlService(new GenerateSqlServiceDelString());
+            string msg = generateService.CreateSqlString(gvdataRow);
+            txtSql.Text = msg;
         }
     }
 }

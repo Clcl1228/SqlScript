@@ -52,9 +52,12 @@
     <Compile Include="DataService.cs" />
     <Compile Include="DBHelper\DBUtility.cs" />
     <Compile Include="DBHelper\OrcDBUtillty.cs" />
+    <Compile Include="File\SaveFile.cs" />
     <Compile Include="Generate\GenerateSqlService.cs" />
+    <Compile Include="Generate\GenerateOracleDelString.cs" />
     <Compile Include="Generate\GenerateSqlServiceMain.cs" />
     <Compile Include="Generate\GenerateOracleString.cs" />
+    <Compile Include="Generate\GenerateSqlServiceDelString.cs" />
     <Compile Include="Generate\GenerateSqlServiceString.cs" />
     <Compile Include="SqlConnection\ServerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

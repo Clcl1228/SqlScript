@@ -23,7 +23,7 @@ namespace ScriptService
                 string isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
                 string def = item.Cells[5].Value == null ? "" : "DEFAULT "+item.Cells[5].Value.ToString();
 
-                if (SqlConnectionM.Status=="1")
+                if (SqlConnectionM.Status=="1" && SqlConnectionM.ServerType == "SqlServer")
                 {
                     bool flag = DbHelperSQL.TabExists(table);
                     if (!flag) { throw new Exception("表" + table + "不存在"); }

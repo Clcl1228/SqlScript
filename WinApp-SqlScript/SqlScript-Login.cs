@@ -42,9 +42,9 @@ namespace WinApp_SqlScript
             XmlManagerService.UpdateXML(filePath, "DBName", SqlConnectionM.cataLog);
 
             MessageBox.Show("保存成功！");
-            this.Hide();
-            SqlScriptMain main = new SqlScriptMain(this);
-            main.Show();
+            //this.Hide();
+            //SqlScriptMain main = new SqlScriptMain(this);
+            //main.Show();
 
         }
 
@@ -62,8 +62,8 @@ namespace WinApp_SqlScript
             SqlConnectionM.ServerType = this.comBoxServer.SelectedValue.ToString();
             SqlConnectionM.cataLog = this.txtKu.Text;
 
-            SqlConnectionM.SqlConnString = string.Format(SqlConnectionM.SqlConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
-            SqlConnectionM.OracleConnString = string.Format(SqlConnectionM.OracleConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
+            SqlConnectionM.SqlConnString = string.Format(SqlConnectionM.SqlConnStringM, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
+            SqlConnectionM.OracleConnString = string.Format(SqlConnectionM.OracleConnStringM, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
 
         }
 
@@ -154,13 +154,13 @@ namespace WinApp_SqlScript
             XmlManagerService.ReadNodeValue(filePath, "DataSource", ref dataSource);
             XmlManagerService.ReadNodeValue(filePath, "DBName", ref ku);
 
-            SqlConnectionM.LoginName = userID;
-            SqlConnectionM.PassWord = password;
-            SqlConnectionM.dataScore = dataSource;
-            SqlConnectionM.cataLog = ku;
+            //SqlConnectionM.LoginName = userID;
+            //SqlConnectionM.PassWord = password;
+            //SqlConnectionM.dataScore = dataSource;
+            //SqlConnectionM.cataLog = ku;
 
-            SqlConnectionM.SqlConnString = string.Format(SqlConnectionM.SqlConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
-            SqlConnectionM.OracleConnString = string.Format(SqlConnectionM.OracleConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore);
+            //SqlConnectionM.SqlConnString = string.Format(SqlConnectionM.SqlConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
+            //SqlConnectionM.OracleConnString = string.Format(SqlConnectionM.OracleConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore);
 
         }
     }
