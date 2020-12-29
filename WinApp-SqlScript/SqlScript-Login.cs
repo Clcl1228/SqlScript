@@ -90,7 +90,7 @@ namespace WinApp_SqlScript
             {
                 throw new Exception("数据源不能为空！");
             }
-            if (string.IsNullOrEmpty(this.txtKu.Text)&& this.comBoxServer.SelectedValue=="Sqlerver")
+            if (string.IsNullOrEmpty(this.txtKu.Text))
             {
                 throw new Exception("数据库不能为空！");
             }
@@ -127,14 +127,17 @@ namespace WinApp_SqlScript
             string password = string.Empty;
             string dataSource = string.Empty;
             string ku = string.Empty;
+            string server = string.Empty;
             XmlManagerService.ReadNodeValue(filePath, "UID", ref userID);
             XmlManagerService.ReadNodeValue(filePath, "PWD", ref password);
             XmlManagerService.ReadNodeValue(filePath, "DataSource", ref dataSource);
             XmlManagerService.ReadNodeValue(filePath, "DBName", ref ku);
+            XmlManagerService.ReadNodeValue(filePath, "Server", ref server);
             this.txtUserName.Text = userID;
             this.txtPassWord.Text = password;
             this.txtDataScore.Text = dataSource;
             this.txtKu.Text = ku;
+            this.comBoxServer.SelectedIndex = server=="SqlServer"?0:1;
         }
 
         private void btnIn_Click(object sender, EventArgs e)

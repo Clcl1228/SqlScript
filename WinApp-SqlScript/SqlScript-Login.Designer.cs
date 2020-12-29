@@ -101,9 +101,9 @@ namespace WinApp_SqlScript
             // 
             this.comBoxServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comBoxServer.FormattingEnabled = true;
-            this.comBoxServer.Location = new System.Drawing.Point(128, 198);
+            this.comBoxServer.Location = new System.Drawing.Point(116, 195);
             this.comBoxServer.Name = "comBoxServer";
-            this.comBoxServer.Size = new System.Drawing.Size(124, 20);
+            this.comBoxServer.Size = new System.Drawing.Size(162, 20);
             this.comBoxServer.TabIndex = 11;
             // 
             // btnTest

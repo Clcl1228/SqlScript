@@ -16,10 +16,10 @@ namespace SqlScript_MODEL
         }
         public enum SqlType
         {
-            varchar = 2,
-            nvarchar = 8,
+            varchar = 1,
+            nvarchar = 7,
             numeric = 3,
-            datetime = 6
+            datetime = 5
         }
         public enum AllType
         {

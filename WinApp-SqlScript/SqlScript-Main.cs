@@ -15,6 +15,7 @@ namespace WinApp_SqlScript
         SqlScript_Login _login;
         SqlScript_Add Add;
         SqlScript_Del del;
+        SqlScript_Update update;
         public SqlScriptMain(SqlScript_Login login)
         {
             InitializeComponent();
@@ -72,6 +73,29 @@ namespace WinApp_SqlScript
                 else
                 {
                     del.BringToFront();
+                }
+            }
+        }
+
+        private void 更新字段ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SqlConnectionM.Status != "1")
+            {
+                throw new Exception("数据库未连接");
+            }
+            else
+            {
+                if (del == null)
+                {
+                    this.IsMdiContainer = true;
+                    update = new SqlScript_Update();
+                    update.MdiParent = this;
+                    update.Show();
+                    update.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    update.BringToFront();
                 }
             }
         }

@@ -12,14 +12,17 @@ namespace ScriptService
         public string OracleToSql(object fieldType)
         {
             string sqlName = "";
-            if (!Enum.IsDefined(typeof(FieldTypes.AllType), fieldType.ToString().Split('(')[0].ToLower()))
+            string tp = fieldType.ToString().Split('(')[0].ToLower();
+            if (!Enum.IsDefined(typeof(FieldTypes.AllType), tp))
             {
                 throw new Exception("数据类型有误:" + fieldType);
             }
-            else if (Enum.IsDefined(typeof(FieldTypes.OracleType), fieldType.ToString().Split('(')[0].ToLower()))
+            else if (Enum.IsDefined(typeof(FieldTypes.OracleType), tp))
             {
-                int ft = (int)(FieldTypes.OracleType)fieldType;
+                FieldTypes.OracleType state = (FieldTypes.OracleType)Enum.Parse(typeof(FieldTypes.OracleType), tp);
+                int ft = (int)(FieldTypes.OracleType)state;
                 sqlName = Enum.GetName(typeof(FieldTypes.SqlType), ft);
+                sqlName= fieldType.ToString().ToLower().Replace(tp, sqlName);
             }
             else
             {
@@ -30,14 +33,19 @@ namespace ScriptService
         public string SqlToOracle(object fieldType)
         {
             string sqlName = "";
-            if (!Enum.IsDefined(typeof(FieldTypes.AllType), fieldType.ToString().Split('(')[0].ToLower()))
+            string tp = fieldType.ToString().Split('(')[0].ToLower();
+
+            if (!Enum.IsDefined(typeof(FieldTypes.AllType), tp))
             {
                 throw new Exception("数据类型有误:" + fieldType);
             }
-            else if (Enum.IsDefined(typeof(FieldTypes.SqlType), fieldType.ToString().Split('(')[0].ToLower()))
+            else if (Enum.IsDefined(typeof(FieldTypes.SqlType), tp))
             {
-                int ft = (int)(FieldTypes.SqlType)(object)fieldType.ToString().Split('(')[0].ToLower());
+                FieldTypes.SqlType state = (FieldTypes.SqlType)Enum.Parse(typeof(FieldTypes.SqlType), tp);
+                int ft = (int)(FieldTypes.SqlType)state;
                 sqlName = Enum.GetName(typeof(FieldTypes.OracleType), ft);
+                sqlName = fieldType.ToString().ToLower().Replace(tp, sqlName);
+    
             }
             else
             {

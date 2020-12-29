@@ -69,6 +69,7 @@ namespace WinApp_SqlScript
             this.更新字段ToolStripMenuItem.Name = "更新字段ToolStripMenuItem";
             this.更新字段ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.更新字段ToolStripMenuItem.Text = "更新字段";
+            this.更新字段ToolStripMenuItem.Click += new System.EventHandler(this.更新字段ToolStripMenuItem_Click);
             // 
             // 查询ToolStripMenuItem
             // 
@@ -83,7 +84,7 @@ namespace WinApp_SqlScript
             this.ClientSize = new System.Drawing.Size(1220, 461);
             this.Controls.Add(this.menuStrip1);
             this.Name = "SqlScriptMain";
-            this.Text = "Form1";
+            this.Text = "主页";
             this.Load += new System.EventHandler(this.SqlScriptMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
