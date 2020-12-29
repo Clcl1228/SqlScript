@@ -23,8 +23,7 @@ namespace ScriptService
                 //使用自动缩进便于阅读
                 writer.Formatting = Formatting.Indented;
                 //写入根元素
-                writer.WriteStartElement("items");
-                writer.WriteStartElement("item");
+                writer.WriteStartElement("Items");
                 string[] itemArray = items.Split(new char[] { ',' });
                 //加入子元素
                 for (int i = 0; i < itemArray.Length; i++)
@@ -37,7 +36,6 @@ namespace ScriptService
                     writer.WriteElementString(itemArray[i], "");
                 }
                 //关闭根元素，并书写结束标签
-                writer.WriteEndElement();
                 writer.WriteEndElement();
                 //将XML写入文件并且关闭XmlTextWriter
                 writer.Close();

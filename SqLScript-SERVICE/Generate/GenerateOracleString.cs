@@ -11,13 +11,14 @@ namespace ScriptService
 {
     public class GenerateOracleString : GenerateSqlServiceMain
     {
+        SqlOrOracleFieldType fType = new SqlOrOracleFieldType();
         public override string GenerateSql(DataGridView dataGridView)
         {
             string rMsg = "", rSql = "";
             foreach (DataGridViewRow item in dataGridView.Rows)
             {
                 string Name = item.Cells[0].Value == null ? "" : item.Cells[0].Value.ToString();
-                string type = item.Cells[1].Value == null ? "" : item.Cells[1].Value.ToString();
+                string type = item.Cells[1].Value == null ? "" : GetFieldType(item.Cells[1].Value.ToString());
                 string msg = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
                 string table = item.Cells[3].Value == null ? SqlConnectionM.TableName : item.Cells[3].Value.ToString();
                 string isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
@@ -48,6 +49,10 @@ end;" + "\r\n" + "";
             }
 
             return rSql + "\r\n" + rMsg;
+        }
+        public string GetFieldType(string type)
+        {
+            return fType.SqlToOracle(type);
         }
     }
 }

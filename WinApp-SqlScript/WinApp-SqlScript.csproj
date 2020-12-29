@@ -37,8 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.10.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,6 +100,7 @@
       <DependentUpon>SqlScript-Main.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,6 +120,9 @@
       <Project>{8089845d-c982-4af6-9485-0def00f74fea}</Project>
       <Name>SQLScript-Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

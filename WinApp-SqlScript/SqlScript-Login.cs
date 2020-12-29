@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WinApp_SqlScript
 {
@@ -19,6 +20,12 @@ namespace WinApp_SqlScript
         public SqlScript_Login()
         {
             InitializeComponent();
+            if (!File.Exists(filePath))
+            {
+                string Jd = "UID,PWD,DataSource,Server,DBName";
+                XmlManagerService.CreateXML(filePath, Jd);
+            }
+            
         }
 
         private void InitCombox()

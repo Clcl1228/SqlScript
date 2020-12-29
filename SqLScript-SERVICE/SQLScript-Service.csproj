@@ -35,8 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\WinApp-SqlScript\bin\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.10.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +61,7 @@
     <Compile Include="SqlConnection\ServerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnection\ServerConnection.cs" />
+    <Compile Include="SqlOrOracleFieldType.cs" />
     <Compile Include="XmlManagerService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +69,10 @@
       <Project>{5c10806c-b32e-422f-a4d3-dcc70dcd67b8}</Project>
       <Name>SqlScript-MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

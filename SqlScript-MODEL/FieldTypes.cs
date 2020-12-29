@@ -7,33 +7,34 @@ namespace SqlScript_MODEL
 {
     public class FieldTypes
     {
-        public enum SqlFieldType 
+        public enum OracleType
         {
-            varchar,
-            nvarchar,
-            numeric,
-            datetime
+            varchar2 = 1,
+            nvarchar2= 7,
+            number =3,
+            date=5
         }
-
-
-        public enum OracleFieldType 
+        public enum SqlType
         {
-            varchar2,
-            nvarchar2,
-            date,
-            number
+            varchar = 2,
+            nvarchar = 8,
+            numeric = 3,
+            datetime = 6
         }
-
         public enum AllType
         {
-            varchar,
-            nvarchar,
-            numeric,
-            datetime,
-            varchar2,
-            nvarchar2,
-            date,
-            number
+            varchar=1,
+            varchar2=2,
+
+            numeric=3,
+            number = 4,
+
+            datetime =5,
+            date=6,
+
+            nvarchar=7,
+            nvarchar2=8,
+            
         }
     }
 }
