@@ -23,7 +23,7 @@ namespace ScriptService
                 string table = item.Cells[3].Value == null ? SqlConnectionM.TableName : item.Cells[3].Value.ToString();
                 string isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
                 string def = item.Cells[5].Value == null ? "" : "DEFAULT "+item.Cells[5].Value.ToString();
-
+                string bz = "";
 
                 if (SqlConnectionM.Status=="1" && SqlConnectionM.ServerType == "SqlServer")
                 {
@@ -34,18 +34,22 @@ namespace ScriptService
                 {
                     rSql += @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')
   BEGIN
-  ALTER TABLE {0} ADD {1} {2} {3} {4}
+  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}
 END" + "\r\n" + "";
-                    rSql = string.Format(rSql,table, Name, type,isNull, def);
-                    if (msg != "")
+                    if (msg == "")
                     {
-                        rMsg += @"execute sp_addextendedproperty N'MS_Description', '{2}', N'SCHEMA', N'dbo', N'table', N'{0}', N'COLUMN', N'{1}' "+"\r\n"+"";
-                        rMsg = string.Format(rMsg, table, Name, msg);
+                        bz = "";
                     }
+                    else
+                    {
+                        bz = "\r\n" + "execute sp_addextendedproperty N'MS_Description', '{2}', N'SCHEMA', N'dbo', N'table', N'{0}', N'COLUMN', N'{1}'";
+                        bz = String.Format(bz, table, Name, msg);
+                    }
+                    rSql = string.Format(rSql,table, Name, type,isNull, def,msg,bz);
                 }
             }
 
-            return rSql+"\r\n"+rMsg;
+            return rSql+"\r\n";
         }
         public string GetFieldType(string type)
         {
