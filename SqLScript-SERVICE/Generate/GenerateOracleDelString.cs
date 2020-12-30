@@ -19,7 +19,7 @@ namespace ScriptService
             {
                 
                 string isDel = item.Cells[0].Value==null?"":item.Cells[0].Value.ToString();
-                string table = item.Cells[1].Value == null ? tName : item.Cells[1].Value.ToString();
+                string table = item.Cells[1].Value == null ? tName :item.Cells[1].Value.ToString()==""?tName: item.Cells[1].Value.ToString();
                 string name = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
                 if (isDel=="True" && name!="")
                 {

@@ -22,7 +22,7 @@ namespace ScriptService
                 FieldTypes.OracleType state = (FieldTypes.OracleType)Enum.Parse(typeof(FieldTypes.OracleType), tp);
                 int ft = (int)(FieldTypes.OracleType)state;
                 sqlName = Enum.GetName(typeof(FieldTypes.SqlType), ft);
-                sqlName= fieldType.ToString().ToLower().Replace(tp, sqlName);
+                sqlName= fieldType.ToString().ToUpper().Replace(tp, sqlName);
             }
             else
             {
@@ -44,7 +44,7 @@ namespace ScriptService
                 FieldTypes.SqlType state = (FieldTypes.SqlType)Enum.Parse(typeof(FieldTypes.SqlType), tp);
                 int ft = (int)(FieldTypes.SqlType)state;
                 sqlName = Enum.GetName(typeof(FieldTypes.OracleType), ft);
-                sqlName = fieldType.ToString().ToLower().Replace(tp, sqlName);
+                sqlName = fieldType.ToString().ToUpper().Replace(tp, sqlName);
     
             }
             else

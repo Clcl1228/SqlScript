@@ -95,6 +95,7 @@ namespace WinApp_SqlScript
             this.btnOracleSave.TabIndex = 20;
             this.btnOracleSave.Text = "生成Oracle";
             this.btnOracleSave.UseVisualStyleBackColor = true;
+            this.btnOracleSave.Click += new System.EventHandler(this.btnOracleSave_Click);
             // 
             // groupSql
             // 
@@ -139,7 +140,7 @@ namespace WinApp_SqlScript
             // 
             // cboDel
             // 
-            this.cboDel.HeaderText = "勾选删除";
+            this.cboDel.HeaderText = "勾选更新";
             this.cboDel.Name = "cboDel";
             this.cboDel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cboDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;

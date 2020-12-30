@@ -52,10 +52,8 @@ order by ut.column_name ";
         public DataTable GetSqlServerUpdateFieldToTable(string tableName)
         {
             string sql = @" SELECT
-       C.name as [字段名],T.name as [字段类型]
-	   ,COLUMNPROPERTY(C.id,C.name,'PRECISION') as [长度]
-      ,isnull(COLUMNPROPERTY(c.id,c.name,'Scale'),0) as [小数位数]
-      ,isnull(ETP.value,'') AS [字段描述]
+       C.name as [字段名],'' as [字段类型]
+      ,'' AS [字段描述]
       ,'{0}' AS [表名]
  FROM syscolumns C
  INNER JOIN systypes T ON C.xusertype = T.xusertype 
@@ -68,21 +66,11 @@ order by ut.column_name ";
         }
         public DataTable GetOracleUpdateFieldToTable(string tableName)
         {
-            string sql = @" SELECT
-       C.name as [字段名],T.name as [字段类型]
-       ,convert(bit,C.IsNullable)  as [可否为空]
-	   ,COLUMNPROPERTY(C.id,C.name,'PRECISION') as [长度]
-      ,isnull(COLUMNPROPERTY(c.id,c.name,'Scale'),0) as [小数位数]
-      ,isnull(ETP.value,'') AS [字段描述]
-      --,ROW_NUMBER() OVER (ORDER BY C.name) AS [Row]
- FROM syscolumns C
- INNER JOIN systypes T ON C.xusertype = T.xusertype 
- left JOIN sys.extended_properties ETP   ON  ETP.major_id = c.id AND ETP.minor_id = C.colid AND ETP.name ='MS_Description' 
- left join syscomments CM on C.cdefault=CM.id
- WHERE C.id = object_id('{0}')";
+            string sql = @"select t.COLUMN_NAME AS 字段名 ,'' AS 字段类型 ,'' AS 字段描述,{0} as 表名
+ from user_tab_columns t,user_col_comments c
+ where t.table_name = c.table_name and t.column_name = c.column_name and t.table_name ='{0}'";
             sql = String.Format(sql, tableName);
-            SqlDataReader sqlData = DBUtility.DbHelperSQL.ExecuteReader(sql);
-            return DBUtility.DbHelperSQL.GetDataTableToDataReader(sqlData);
+            return OracleHepler.ExecuteDataTable(sql);
         }
     }
 }

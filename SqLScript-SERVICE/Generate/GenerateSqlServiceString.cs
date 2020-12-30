@@ -20,7 +20,7 @@ namespace ScriptService
                 string Name = item.Cells[0].Value==null?"":item.Cells[0].Value.ToString();
                 string type = item.Cells[1].Value == null ? "" : GetFieldType(item.Cells[1].Value.ToString());
                 string msg = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
-                string table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString();
+                string table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString() == "" ? tName : item.Cells[3].Value.ToString();
                 string isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
                 string def = item.Cells[5].Value == null ? "" : "DEFAULT "+item.Cells[5].Value.ToString();
                 string bz = "";
@@ -32,9 +32,9 @@ namespace ScriptService
                 }
                 if(table!="" && Name!="" && type!="")
                 {
-                    rSql += @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')
-  BEGIN
-  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}
+                    rSql += @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')"+"\r\n"+ @"
+  BEGIN" + "\r\n" + @"
+  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}" + "\r\n" + @"
 END" + "\r\n" + "";
                     if (msg == "")
                     {

@@ -86,5 +86,12 @@ namespace WinApp_SqlScript
         {
             BindData();
         }
+
+        private void btnOracleSave_Click(object sender, EventArgs e)
+        {
+            generateService = new GenerateSqlService(new GenerateOracleUpdateString());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue.ToString().Trim().ToLower());
+            txtSql.Text = msg;
+        }
     }
 }

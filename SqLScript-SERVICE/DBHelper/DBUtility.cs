@@ -82,26 +82,27 @@ namespace DBUtility
         /// <returns></returns>
         public static bool TabExists(string TableName)
         {
-            string strsql = "select count(*) from sysobjects where id = object_id(N'[" + TableName + "]') and OBJECTPROPERTY(id, N'IsUserTable') = 1";
-            //string strsql = "SELECT count(*) FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[" + TableName + "]') AND type in (N'U')";
-            object obj = GetSingle(strsql);
-            int cmdresult;
-            if ((Object.Equals(obj, null)) || (Object.Equals(obj, System.DBNull.Value)))
-            {
-                cmdresult = 0;
-            }
-            else
-            {
-                cmdresult = int.Parse(obj.ToString());
-            }
-            if (cmdresult == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+
+                string strsql = "select count(*) from sysobjects where id = object_id(N'[" + TableName + "]') and OBJECTPROPERTY(id, N'IsUserTable') = 1";
+                //string strsql = "SELECT count(*) FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[" + TableName + "]') AND type in (N'U')";
+                object obj = GetSingle(strsql);
+                int cmdresult;
+                if ((Object.Equals(obj, null)) || (Object.Equals(obj, System.DBNull.Value)))
+                {
+                    cmdresult = 0;
+                }
+                else
+                {
+                    cmdresult = int.Parse(obj.ToString());
+                }
+                if (cmdresult == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
         }
         public static bool Exists(string strSql, params SqlParameter[] cmdParms)
         {
