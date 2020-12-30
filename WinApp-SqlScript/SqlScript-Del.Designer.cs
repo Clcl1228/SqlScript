@@ -50,16 +50,16 @@ namespace WinApp_SqlScript
             // cboTable
             // 
             this.cboTable.FormattingEnabled = true;
-            this.cboTable.Location = new System.Drawing.Point(622, 48);
+            this.cboTable.Location = new System.Drawing.Point(579, 48);
             this.cboTable.Name = "cboTable";
-            this.cboTable.Size = new System.Drawing.Size(100, 20);
+            this.cboTable.Size = new System.Drawing.Size(168, 20);
             this.cboTable.TabIndex = 16;
             this.cboTable.SelectedIndexChanged += new System.EventHandler(this.cboTable_SelectedIndexChanged);
             // 
             // btnClearSql
             // 
             this.btnClearSql.AccessibleName = "表名";
-            this.btnClearSql.Location = new System.Drawing.Point(622, 307);
+            this.btnClearSql.Location = new System.Drawing.Point(611, 294);
             this.btnClearSql.Name = "btnClearSql";
             this.btnClearSql.Size = new System.Drawing.Size(100, 23);
             this.btnClearSql.TabIndex = 14;
@@ -70,7 +70,7 @@ namespace WinApp_SqlScript
             // button2
             // 
             this.button2.AccessibleName = "表名";
-            this.button2.Location = new System.Drawing.Point(622, 124);
+            this.button2.Location = new System.Drawing.Point(611, 111);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 13;
@@ -81,7 +81,7 @@ namespace WinApp_SqlScript
             // btnCreateSqlO
             // 
             this.btnCreateSqlO.AccessibleName = "表名";
-            this.btnCreateSqlO.Location = new System.Drawing.Point(622, 188);
+            this.btnCreateSqlO.Location = new System.Drawing.Point(611, 175);
             this.btnCreateSqlO.Name = "btnCreateSqlO";
             this.btnCreateSqlO.Size = new System.Drawing.Size(100, 23);
             this.btnCreateSqlO.TabIndex = 12;
@@ -114,7 +114,7 @@ namespace WinApp_SqlScript
             this.groupAdd.Controls.Add(this.gvdataRow);
             this.groupAdd.Location = new System.Drawing.Point(12, 12);
             this.groupAdd.Name = "groupAdd";
-            this.groupAdd.Size = new System.Drawing.Size(590, 397);
+            this.groupAdd.Size = new System.Drawing.Size(561, 397);
             this.groupAdd.TabIndex = 9;
             this.groupAdd.TabStop = false;
             this.groupAdd.Text = "选择删除的字段";
@@ -130,7 +130,7 @@ namespace WinApp_SqlScript
             this.gvdataRow.Location = new System.Drawing.Point(6, 20);
             this.gvdataRow.Name = "gvdataRow";
             this.gvdataRow.RowTemplate.Height = 23;
-            this.gvdataRow.Size = new System.Drawing.Size(573, 371);
+            this.gvdataRow.Size = new System.Drawing.Size(549, 371);
             this.gvdataRow.TabIndex = 0;
             // 
             // cboDel
@@ -166,7 +166,7 @@ namespace WinApp_SqlScript
             // btnSave
             // 
             this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(622, 248);
+            this.btnSave.Location = new System.Drawing.Point(611, 235);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 17;

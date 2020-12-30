@@ -12,7 +12,7 @@ namespace ScriptService
         public string OracleToSql(object fieldType)
         {
             string sqlName = "";
-            string tp = fieldType.ToString().Split('(')[0].ToLower();
+            string tp = fieldType.ToString().Split('(')[0].ToUpper();
             if (!Enum.IsDefined(typeof(FieldTypes.AllType), tp))
             {
                 throw new Exception("数据类型有误:" + fieldType);
@@ -33,7 +33,7 @@ namespace ScriptService
         public string SqlToOracle(object fieldType)
         {
             string sqlName = "";
-            string tp = fieldType.ToString().Split('(')[0].ToLower();
+            string tp = fieldType.ToString().Split('(')[0].ToUpper();
 
             if (!Enum.IsDefined(typeof(FieldTypes.AllType), tp))
             {

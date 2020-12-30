@@ -61,7 +61,7 @@ namespace WinApp_SqlScript
             this.groupAdd.Controls.Add(this.gvdataRow);
             this.groupAdd.Location = new System.Drawing.Point(12, 12);
             this.groupAdd.Name = "groupAdd";
-            this.groupAdd.Size = new System.Drawing.Size(616, 397);
+            this.groupAdd.Size = new System.Drawing.Size(573, 397);
             this.groupAdd.TabIndex = 0;
             this.groupAdd.TabStop = false;
             this.groupAdd.Text = "添加字段内容";
@@ -79,7 +79,7 @@ namespace WinApp_SqlScript
             this.gvdataRow.Location = new System.Drawing.Point(6, 20);
             this.gvdataRow.Name = "gvdataRow";
             this.gvdataRow.RowTemplate.Height = 23;
-            this.gvdataRow.Size = new System.Drawing.Size(604, 371);
+            this.gvdataRow.Size = new System.Drawing.Size(553, 371);
             this.gvdataRow.TabIndex = 0;
             this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
@@ -144,7 +144,7 @@ namespace WinApp_SqlScript
             // btnAddRow
             // 
             this.btnAddRow.AccessibleName = "表名";
-            this.btnAddRow.Location = new System.Drawing.Point(634, 94);
+            this.btnAddRow.Location = new System.Drawing.Point(615, 93);
             this.btnAddRow.Name = "btnAddRow";
             this.btnAddRow.Size = new System.Drawing.Size(100, 23);
             this.btnAddRow.TabIndex = 2;
@@ -155,7 +155,7 @@ namespace WinApp_SqlScript
             // btnCreateSqlO
             // 
             this.btnCreateSqlO.AccessibleName = "表名";
-            this.btnCreateSqlO.Location = new System.Drawing.Point(634, 187);
+            this.btnCreateSqlO.Location = new System.Drawing.Point(615, 186);
             this.btnCreateSqlO.Name = "btnCreateSqlO";
             this.btnCreateSqlO.Size = new System.Drawing.Size(100, 23);
             this.btnCreateSqlO.TabIndex = 4;
@@ -166,7 +166,7 @@ namespace WinApp_SqlScript
             // button2
             // 
             this.button2.AccessibleName = "表名";
-            this.button2.Location = new System.Drawing.Point(634, 141);
+            this.button2.Location = new System.Drawing.Point(615, 140);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 5;
@@ -199,7 +199,7 @@ namespace WinApp_SqlScript
             // btnClearSql
             // 
             this.btnClearSql.AccessibleName = "表名";
-            this.btnClearSql.Location = new System.Drawing.Point(634, 283);
+            this.btnClearSql.Location = new System.Drawing.Point(615, 282);
             this.btnClearSql.Name = "btnClearSql";
             this.btnClearSql.Size = new System.Drawing.Size(100, 23);
             this.btnClearSql.TabIndex = 6;
@@ -210,7 +210,7 @@ namespace WinApp_SqlScript
             // btnClearGvData
             // 
             this.btnClearGvData.AccessibleName = "表名";
-            this.btnClearGvData.Location = new System.Drawing.Point(634, 332);
+            this.btnClearGvData.Location = new System.Drawing.Point(615, 331);
             this.btnClearGvData.Name = "btnClearGvData";
             this.btnClearGvData.Size = new System.Drawing.Size(100, 23);
             this.btnClearGvData.TabIndex = 7;
@@ -221,16 +221,16 @@ namespace WinApp_SqlScript
             // cboTable
             // 
             this.cboTable.FormattingEnabled = true;
-            this.cboTable.Location = new System.Drawing.Point(634, 44);
+            this.cboTable.Location = new System.Drawing.Point(591, 44);
             this.cboTable.Name = "cboTable";
-            this.cboTable.Size = new System.Drawing.Size(100, 20);
+            this.cboTable.Size = new System.Drawing.Size(156, 20);
             this.cboTable.TabIndex = 8;
             this.cboTable.SelectedValueChanged += new System.EventHandler(this.cboTable_SelectedValueChanged);
             // 
             // btnSave
             // 
             this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(634, 234);
+            this.btnSave.Location = new System.Drawing.Point(615, 233);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 18;

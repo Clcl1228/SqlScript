@@ -9,6 +9,6 @@ namespace ScriptService
 {
     public abstract class GenerateSqlServiceMain
     {
-       public abstract string GenerateSql(DataGridView dataGridView);
+       public abstract string GenerateSql(DataGridView dataGridView,string table);
     }
 }

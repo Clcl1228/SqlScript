@@ -9,32 +9,36 @@ namespace SqlScript_MODEL
     {
         public enum OracleType
         {
-            varchar2 = 1,
-            nvarchar2= 7,
-            number =3,
-            date=5
+            VARCHAR2 = 1,
+            NVARCHAR2= 7,
+            NUMBER =3,
+            DATE=5,
+            INTEGER=6
         }
         public enum SqlType
         {
-            varchar = 1,
-            nvarchar = 7,
-            numeric = 3,
-            datetime = 5
+            VARCHAR = 1,
+            NVARCHAR = 7,
+            NUMERIC = 3,
+            DATETIME = 5,
+            INT =6
         }
         public enum AllType
         {
-            varchar=1,
-            varchar2=2,
+            VARCHAR = 1,
+            VARCHAR2= 2,
 
-            numeric=3,
-            number = 4,
+            NUMERIC = 3,
+            NUMBER = 4,
 
-            datetime =5,
-            date=6,
+            DATETIME =5,
+            DATE=6,
 
-            nvarchar=7,
-            nvarchar2=8,
-            
+            NVARCHAR = 7,
+            NVARCHAR2= 8,
+
+            INT =9,
+            INTEGER=10
         }
     }
 }

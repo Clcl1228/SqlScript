@@ -12,7 +12,7 @@ namespace ScriptService
     public class GenerateSqlServiceString : GenerateSqlServiceMain
     {
         SqlOrOracleFieldType fType = new SqlOrOracleFieldType();
-        public override string GenerateSql(DataGridView dataGridView)
+        public override string GenerateSql(DataGridView dataGridView,string tName)
         {
             string rMsg = "", rSql = "";
             foreach (DataGridViewRow item in dataGridView.Rows)
@@ -20,7 +20,7 @@ namespace ScriptService
                 string Name = item.Cells[0].Value==null?"":item.Cells[0].Value.ToString();
                 string type = item.Cells[1].Value == null ? "" : GetFieldType(item.Cells[1].Value.ToString());
                 string msg = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
-                string table = item.Cells[3].Value == null ? SqlConnectionM.TableName : item.Cells[3].Value.ToString();
+                string table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString();
                 string isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
                 string def = item.Cells[5].Value == null ? "" : "DEFAULT "+item.Cells[5].Value.ToString();
                 string bz = "";
@@ -53,7 +53,7 @@ END" + "\r\n" + "";
         }
         public string GetFieldType(string type)
         {
-            return fType.OracleToSql(type);
+            return fType.OracleToSql(type.ToUpper());
         }
     }
 }

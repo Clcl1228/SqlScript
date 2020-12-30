@@ -62,14 +62,14 @@ namespace WinApp_SqlScript
         private void btnCreateSqlS(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceString());
-            string msg=generateService.CreateSqlString(gvdataRow);
+            string msg=generateService.CreateSqlString(gvdataRow,cboTable.SelectedValue.ToString().Trim().ToLower());
             txtSql.Text = msg;
         }
 
         private void btnCreateSqlO_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateOracleString());
-            string msg = generateService.CreateSqlString(gvdataRow);
+            string msg = generateService.CreateSqlString(gvdataRow,cboTable.SelectedValue.ToString().Trim().ToLower());
             txtSql.Text = msg;
         }
 

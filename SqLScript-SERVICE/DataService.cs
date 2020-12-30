@@ -53,10 +53,8 @@ order by ut.column_name ";
         {
             string sql = @" SELECT
        C.name as [字段名],T.name as [字段类型]
-       ,convert(bit,C.IsNullable)  as [可否为空]
 	   ,COLUMNPROPERTY(C.id,C.name,'PRECISION') as [长度]
       ,isnull(COLUMNPROPERTY(c.id,c.name,'Scale'),0) as [小数位数]
-      ,ISNULL(CM.text,'') as [默认值]
       ,isnull(ETP.value,'') AS [字段描述]
       ,'{0}' AS [表名]
  FROM syscolumns C

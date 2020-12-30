@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using ScriptService;
+using ScriptService.File;
 using SqlScript_MODEL;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace WinApp_SqlScript
     public partial class SqlScript_Update : Form
     {
         DataService dataService = new DataService();
+        GenerateSqlService generateService;
 
         public SqlScript_Update()
         {
@@ -61,6 +63,28 @@ namespace WinApp_SqlScript
                 this.gvdataRow.DataSource = dt;
             }
 
+        }
+
+        private void btnClearSql_Click(object sender, EventArgs e)
+        {
+            this.txtSql.Clear();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFile.SaveFilesToText(txtSql.Text.ToString().Trim());
+        }
+
+        private void btnSqlServerSave_Click(object sender, EventArgs e)
+        {
+            generateService = new GenerateSqlService(new GenerateSqlServiceUpdateString());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue.ToString().Trim().ToLower());
+            txtSql.Text = msg;
+        }
+
+        private void cboTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindData();
         }
     }
 }

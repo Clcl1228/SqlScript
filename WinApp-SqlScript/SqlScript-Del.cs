@@ -74,7 +74,7 @@ namespace WinApp_SqlScript
         private void button2_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceDelString());
-            string msg = generateService.CreateSqlString(gvdataRow);
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue.ToString().Trim().ToLower());
             txtSql.Text = msg;
         }
 
@@ -91,7 +91,7 @@ namespace WinApp_SqlScript
         private void btnCreateSqlO_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceDelString());
-            string msg = generateService.CreateSqlString(gvdataRow);
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue.ToString().Trim().ToLower());
             txtSql.Text = msg;
         }
     }

@@ -32,8 +32,8 @@ namespace WinApp_SqlScript
             this.btnSave = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
             this.btnClearSql = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnCreateSqlO = new System.Windows.Forms.Button();
+            this.btnSqlServerSave = new System.Windows.Forms.Button();
+            this.btnOracleSave = new System.Windows.Forms.Button();
             this.groupSql = new System.Windows.Forms.GroupBox();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.groupAdd = new System.Windows.Forms.GroupBox();
@@ -47,50 +47,54 @@ namespace WinApp_SqlScript
             // btnSave
             // 
             this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(622, 248);
+            this.btnSave.Location = new System.Drawing.Point(610, 236);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 24;
             this.btnSave.Text = "保存到文件";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cboTable
             // 
             this.cboTable.FormattingEnabled = true;
-            this.cboTable.Location = new System.Drawing.Point(622, 48);
+            this.cboTable.Location = new System.Drawing.Point(575, 52);
             this.cboTable.Name = "cboTable";
-            this.cboTable.Size = new System.Drawing.Size(100, 20);
+            this.cboTable.Size = new System.Drawing.Size(172, 20);
             this.cboTable.TabIndex = 23;
+            this.cboTable.SelectedIndexChanged += new System.EventHandler(this.cboTable_SelectedIndexChanged);
             // 
             // btnClearSql
             // 
             this.btnClearSql.AccessibleName = "表名";
-            this.btnClearSql.Location = new System.Drawing.Point(622, 307);
+            this.btnClearSql.Location = new System.Drawing.Point(610, 295);
             this.btnClearSql.Name = "btnClearSql";
             this.btnClearSql.Size = new System.Drawing.Size(100, 23);
             this.btnClearSql.TabIndex = 22;
             this.btnClearSql.Text = "清空Sql";
             this.btnClearSql.UseVisualStyleBackColor = true;
+            this.btnClearSql.Click += new System.EventHandler(this.btnClearSql_Click);
             // 
-            // button2
+            // btnSqlServerSave
             // 
-            this.button2.AccessibleName = "表名";
-            this.button2.Location = new System.Drawing.Point(622, 124);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "生成SqlServer";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSqlServerSave.AccessibleName = "表名";
+            this.btnSqlServerSave.Location = new System.Drawing.Point(610, 112);
+            this.btnSqlServerSave.Name = "btnSqlServerSave";
+            this.btnSqlServerSave.Size = new System.Drawing.Size(100, 23);
+            this.btnSqlServerSave.TabIndex = 21;
+            this.btnSqlServerSave.Text = "生成SqlServer";
+            this.btnSqlServerSave.UseVisualStyleBackColor = true;
+            this.btnSqlServerSave.Click += new System.EventHandler(this.btnSqlServerSave_Click);
             // 
-            // btnCreateSqlO
+            // btnOracleSave
             // 
-            this.btnCreateSqlO.AccessibleName = "表名";
-            this.btnCreateSqlO.Location = new System.Drawing.Point(622, 188);
-            this.btnCreateSqlO.Name = "btnCreateSqlO";
-            this.btnCreateSqlO.Size = new System.Drawing.Size(100, 23);
-            this.btnCreateSqlO.TabIndex = 20;
-            this.btnCreateSqlO.Text = "生成Oracle";
-            this.btnCreateSqlO.UseVisualStyleBackColor = true;
+            this.btnOracleSave.AccessibleName = "表名";
+            this.btnOracleSave.Location = new System.Drawing.Point(610, 176);
+            this.btnOracleSave.Name = "btnOracleSave";
+            this.btnOracleSave.Size = new System.Drawing.Size(100, 23);
+            this.btnOracleSave.TabIndex = 20;
+            this.btnOracleSave.Text = "生成Oracle";
+            this.btnOracleSave.UseVisualStyleBackColor = true;
             // 
             // groupSql
             // 
@@ -117,7 +121,7 @@ namespace WinApp_SqlScript
             this.groupAdd.Controls.Add(this.gvdataRow);
             this.groupAdd.Location = new System.Drawing.Point(12, 12);
             this.groupAdd.Name = "groupAdd";
-            this.groupAdd.Size = new System.Drawing.Size(590, 397);
+            this.groupAdd.Size = new System.Drawing.Size(557, 397);
             this.groupAdd.TabIndex = 18;
             this.groupAdd.TabStop = false;
             this.groupAdd.Text = "修改字段";
@@ -130,7 +134,7 @@ namespace WinApp_SqlScript
             this.gvdataRow.Location = new System.Drawing.Point(6, 20);
             this.gvdataRow.Name = "gvdataRow";
             this.gvdataRow.RowTemplate.Height = 23;
-            this.gvdataRow.Size = new System.Drawing.Size(573, 371);
+            this.gvdataRow.Size = new System.Drawing.Size(537, 371);
             this.gvdataRow.TabIndex = 0;
             // 
             // cboDel
@@ -149,8 +153,8 @@ namespace WinApp_SqlScript
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboTable);
             this.Controls.Add(this.btnClearSql);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnCreateSqlO);
+            this.Controls.Add(this.btnSqlServerSave);
+            this.Controls.Add(this.btnOracleSave);
             this.Controls.Add(this.groupSql);
             this.Controls.Add(this.groupAdd);
             this.Name = "SqlScript_Update";
@@ -169,8 +173,8 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cboTable;
         private System.Windows.Forms.Button btnClearSql;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnCreateSqlO;
+        private System.Windows.Forms.Button btnSqlServerSave;
+        private System.Windows.Forms.Button btnOracleSave;
         private System.Windows.Forms.GroupBox groupSql;
         private System.Windows.Forms.TextBox txtSql;
         private System.Windows.Forms.GroupBox groupAdd;

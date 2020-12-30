@@ -15,9 +15,9 @@ namespace ScriptService
         {
             _main = main;
         }
-        public string CreateSqlString(DataGridView dataGridView)
+        public string CreateSqlString(DataGridView dataGridView,string table)
         {
-            return _main.GenerateSql(dataGridView);
+            return _main.GenerateSql(dataGridView, table);
         }
     }
 }

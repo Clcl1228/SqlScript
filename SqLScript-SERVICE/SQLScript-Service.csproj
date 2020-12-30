@@ -57,6 +57,7 @@
     <Compile Include="Generate\GenerateSqlServiceMain.cs" />
     <Compile Include="Generate\GenerateOracleString.cs" />
     <Compile Include="Generate\GenerateSqlServiceDelString.cs" />
+    <Compile Include="Generate\GenerateSqlServiceUpdateString.cs" />
     <Compile Include="Generate\GenerateSqlServiceString.cs" />
     <Compile Include="SqlConnection\ServerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
