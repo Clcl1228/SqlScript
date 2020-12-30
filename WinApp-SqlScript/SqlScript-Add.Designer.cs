@@ -139,6 +139,7 @@ namespace WinApp_SqlScript
             this.txtSql.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtSql.Size = new System.Drawing.Size(443, 371);
             this.txtSql.TabIndex = 0;
+            this.txtSql.WordWrap = false;
             // 
             // btnAddRow
             // 

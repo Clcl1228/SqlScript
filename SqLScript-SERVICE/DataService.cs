@@ -28,7 +28,7 @@ WHERE A.name = '"+ tableName .ToString().Trim()+ "'";
 
         public OracleDataReader GetOracleAllTable()
         {
-           string sql = @"select t.table_name as name from user_tables t ";
+           string sql = @"select t.table_name as name from user_tables t order by t.table_name asc";
             OracleDataReader dataReader = DBHelperOracle.OracleHepler.ExecuteDataReader(sql, false);
             return dataReader;
         }

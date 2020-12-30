@@ -870,7 +870,7 @@ namespace DBUtility
 
         public static SqlDataReader GetAllTable()
         {
-            string strSQL = @"select name from sysobjects where type='U'";
+            string strSQL = @"select name from sysobjects where type='U' ORDER BY NAME ASC";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(strSQL, connection);
             try

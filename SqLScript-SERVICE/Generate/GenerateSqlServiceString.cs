@@ -32,9 +32,9 @@ namespace ScriptService
                 }
                 if(table!="" && Name!="" && type!="")
                 {
-                    rSql += @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')"+"\r\n"+
-  "BEGIN" + "\r\n"+ @"
-  ALTER TABLE {0} ADD {1} {2} {3} {4}" + "\r\n" + @"
+                    rSql += @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')
+  BEGIN
+  ALTER TABLE {0} ADD {1} {2} {3} {4}
 END" + "\r\n" + "";
                     rSql = string.Format(rSql,table, Name, type,isNull, def);
                     if (msg != "")

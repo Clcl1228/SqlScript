@@ -31,13 +31,13 @@ namespace ScriptService
                 }
                 if (table != "" && Name != "" && type != "")
                 {
-                    rSql += @"declare  cnt number;" + "\r\n" +@"
-begin"+"\r\n"+@"
-   SELECT COUNT(*) into cnt FROM cols WHERE table_name=UPPER('{0}') AND column_name=UPPER('{1}');"+"\r\n"+ @"
-   if cnt=0 then" + "\r\n" + @"
-    execute immediate 'ALTER TABLE {0} ADD {1} {2} {3} {4} ';" + "\r\n" + @"
-  end if;" + "\r\n" + @"
-  cnt:=0;" + "\r\n" + @"
+                    rSql += @"declare  cnt number;
+begin
+   SELECT COUNT(*) into cnt FROM cols WHERE table_name=UPPER('{0}') AND column_name=UPPER('{1}');
+   if cnt=0 then
+    execute immediate 'ALTER TABLE {0} ADD {1} {2} {3} {4} ';
+  end if;
+  cnt:=0;
 end;" + "\r\n" + "";
                     rSql = string.Format(rSql, table, Name, type, isNull, def);
                     if (msg != "")

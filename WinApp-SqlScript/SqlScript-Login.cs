@@ -118,7 +118,6 @@ namespace WinApp_SqlScript
         {
             InitCombox();
             InitLoginInfo();
-            LoadLoginforXml();
         }
 
         private void InitLoginInfo()
@@ -150,28 +149,6 @@ namespace WinApp_SqlScript
             this.Hide();
             SqlScriptMain main = new SqlScriptMain(this);
             main.Show();
-        }
-
-        private void LoadLoginforXml()
-        {
-            string userID = string.Empty;
-            string password = string.Empty;
-            string dataSource = string.Empty;
-            string ku = string.Empty;
-
-            XmlManagerService.ReadNodeValue(filePath, "PWD", ref password);
-            XmlManagerService.ReadNodeValue(filePath, "UID", ref userID);
-            XmlManagerService.ReadNodeValue(filePath, "DataSource", ref dataSource);
-            XmlManagerService.ReadNodeValue(filePath, "DBName", ref ku);
-
-            //SqlConnectionM.LoginName = userID;
-            //SqlConnectionM.PassWord = password;
-            //SqlConnectionM.dataScore = dataSource;
-            //SqlConnectionM.cataLog = ku;
-
-            //SqlConnectionM.SqlConnString = string.Format(SqlConnectionM.SqlConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore, SqlConnectionM.cataLog);
-            //SqlConnectionM.OracleConnString = string.Format(SqlConnectionM.OracleConnString, SqlConnectionM.LoginName, SqlConnectionM.PassWord, SqlConnectionM.dataScore);
-
         }
     }
 }
