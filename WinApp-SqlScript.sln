@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlScript-MODEL", "SqlScrip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLScript-Service", "SqLScript-SERVICE\SQLScript-Service.csproj", "{8089845D-C982-4AF6-9485-0DEF00F74FEA}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SqlScript-Setup", "SqlScript-Setup\SqlScript-Setup.vdproj", "{174D264A-F671-4CB8-AE9A-0189606D5090}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{8089845D-C982-4AF6-9485-0DEF00F74FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8089845D-C982-4AF6-9485-0DEF00F74FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8089845D-C982-4AF6-9485-0DEF00F74FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{174D264A-F671-4CB8-AE9A-0189606D5090}.Debug|Any CPU.ActiveCfg = Debug
+		{174D264A-F671-4CB8-AE9A-0189606D5090}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
