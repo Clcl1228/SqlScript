@@ -55,8 +55,8 @@ namespace ScriptService
             }
 
             return rSql == "" ? rSql : ("--Oracle修改字段类型" + "\r\n" + rSql)
-          + "\n\r" + rMsg == "" ? rMsg : ("--Oracle修改注释" + "\r\n" + rMsg)
-          + "\n\r" + rUp == "" ? rUp : ("--Oracle修改字段名" + "\r\n" + rUp);
+          + "\n\r" + (rMsg == "" ? rMsg : ("--Oracle修改注释" + "\r\n" + rMsg))
+          + "\n\r" + (rUp == "" ? rUp : ("--Oracle修改字段名" + "\r\n" + rUp));
         }
         public string GetFieldType(string type)
         {

@@ -53,7 +53,7 @@ end;""\r\n";
             }
 
             return rSql == "" ? rSql : ("--Oracle新增字段" + "\r\n" + rSql)
-                + "\r\n" + rMsg==""?rMsg: ("--Oracle新增注释" + "\r\n"+rMsg);
+                + "\r\n" + (rMsg==""?rMsg: ("--Oracle新增注释" + "\r\n"+rMsg));
         }
         public string GetFieldType(string type)
         {
