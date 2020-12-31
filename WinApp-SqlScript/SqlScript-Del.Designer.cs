@@ -38,15 +38,15 @@ namespace WinApp_SqlScript
             this.txtSql = new System.Windows.Forms.TextBox();
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
+            this.cboDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddRow = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delRow = new System.Windows.Forms.ToolStripMenuItem();
             this.添加行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cboDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupSql.SuspendLayout();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
@@ -76,7 +76,7 @@ namespace WinApp_SqlScript
             // button2
             // 
             this.button2.AccessibleName = "表名";
-            this.button2.Location = new System.Drawing.Point(611, 111);
+            this.button2.Location = new System.Drawing.Point(611, 169);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 13;
@@ -141,50 +141,6 @@ namespace WinApp_SqlScript
             this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
             // 
-            // btnSave
-            // 
-            this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(611, 275);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 23);
-            this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "保存到文件";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnAddRow
-            // 
-            this.btnAddRow.AccessibleName = "表名";
-            this.btnAddRow.Location = new System.Drawing.Point(611, 164);
-            this.btnAddRow.Name = "btnAddRow";
-            this.btnAddRow.Size = new System.Drawing.Size(100, 23);
-            this.btnAddRow.TabIndex = 18;
-            this.btnAddRow.Text = "添加行";
-            this.btnAddRow.UseVisualStyleBackColor = true;
-            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.delRow,
-            this.添加行ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
-            // 
-            // delRow
-            // 
-            this.delRow.Name = "delRow";
-            this.delRow.Size = new System.Drawing.Size(112, 22);
-            this.delRow.Text = "删除";
-            this.delRow.Click += new System.EventHandler(this.delRow_Click);
-            // 
-            // 添加行ToolStripMenuItem
-            // 
-            this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
-            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.添加行ToolStripMenuItem.Text = "添加行";
-            this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
-            // 
             // cboDel
             // 
             this.cboDel.HeaderText = "勾选删除";
@@ -214,6 +170,50 @@ namespace WinApp_SqlScript
             this.表名.HeaderText = "表名";
             this.表名.Name = "表名";
             this.表名.Width = 130;
+            // 
+            // btnSave
+            // 
+            this.btnSave.AccessibleName = "表名";
+            this.btnSave.Location = new System.Drawing.Point(611, 275);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 23);
+            this.btnSave.TabIndex = 17;
+            this.btnSave.Text = "保存到文件";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnAddRow
+            // 
+            this.btnAddRow.AccessibleName = "表名";
+            this.btnAddRow.Location = new System.Drawing.Point(611, 113);
+            this.btnAddRow.Name = "btnAddRow";
+            this.btnAddRow.Size = new System.Drawing.Size(100, 23);
+            this.btnAddRow.TabIndex = 18;
+            this.btnAddRow.Text = "添加行";
+            this.btnAddRow.UseVisualStyleBackColor = true;
+            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delRow,
+            this.添加行ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
+            // 
+            // delRow
+            // 
+            this.delRow.Name = "delRow";
+            this.delRow.Size = new System.Drawing.Size(112, 22);
+            this.delRow.Text = "删除";
+            this.delRow.Click += new System.EventHandler(this.delRow_Click);
+            // 
+            // 添加行ToolStripMenuItem
+            // 
+            this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
+            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.添加行ToolStripMenuItem.Text = "添加行";
+            this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
             // 
             // SqlScript_Del
             // 

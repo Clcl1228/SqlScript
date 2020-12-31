@@ -52,7 +52,7 @@ namespace WinApp_SqlScript
             // btnSave
             // 
             this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(610, 293);
+            this.btnSave.Location = new System.Drawing.Point(610, 212);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 24;
@@ -72,7 +72,7 @@ namespace WinApp_SqlScript
             // btnClearSql
             // 
             this.btnClearSql.AccessibleName = "表名";
-            this.btnClearSql.Location = new System.Drawing.Point(610, 335);
+            this.btnClearSql.Location = new System.Drawing.Point(610, 268);
             this.btnClearSql.Name = "btnClearSql";
             this.btnClearSql.Size = new System.Drawing.Size(100, 23);
             this.btnClearSql.TabIndex = 22;
@@ -164,14 +164,14 @@ namespace WinApp_SqlScript
             // delRow
             // 
             this.delRow.Name = "delRow";
-            this.delRow.Size = new System.Drawing.Size(180, 22);
+            this.delRow.Size = new System.Drawing.Size(112, 22);
             this.delRow.Text = "删除";
             this.delRow.Click += new System.EventHandler(this.delRow_Click);
             // 
             // 添加行ToolStripMenuItem
             // 
             this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
-            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.添加行ToolStripMenuItem.Text = "添加行";
             this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
             // 
