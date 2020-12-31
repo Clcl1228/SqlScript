@@ -27,7 +27,19 @@ namespace WinApp_SqlScript
         {
             InitializeComponent();
             this.ControlBox = false;
+            Init();
         }
+
+        private void Init()
+        {
+            this.gvdataRow.Columns[0].DefaultCellStyle.BackColor = Color.Orange;
+            this.gvdataRow.Columns[1].DefaultCellStyle.BackColor = Color.Orange;
+            if (SqlConnectionM.Status != "1")
+            {
+                this.gvdataRow.Columns[3].DefaultCellStyle.BackColor = Color.Orange;
+            }
+        }
+
         private void btnAddRow_Click(object sender, EventArgs e)
         {
             gvdataRow.Rows.Add();
@@ -62,20 +74,21 @@ namespace WinApp_SqlScript
         private void btnCreateSqlS(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceString());
-            string msg=generateService.CreateSqlString(gvdataRow,cboTable.SelectedValue.ToString().Trim().ToLower());
+            string msg=generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
             txtSql.Text = msg;
         }
+
 
         private void btnCreateSqlO_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateOracleString());
-            string msg = generateService.CreateSqlString(gvdataRow,cboTable.SelectedValue.ToString().Trim().ToLower());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
             txtSql.Text = msg;
         }
 
         private void btnClearSql_Click(object sender, EventArgs e)
         {
-            this.txtSql.Text = "";
+            this.txtSql.Clear();
         }
 
         private void btnClearGvData_Click(object sender, EventArgs e)
@@ -109,10 +122,10 @@ namespace WinApp_SqlScript
                 this.cboTable.DataSource = dt;
                 this.cboTable.DisplayMember = "name";
                 this.cboTable.ValueMember = "name";
-                this.FormBorderStyle = FormBorderStyle.None;
                 SqlConnectionM.TableName = this.cboTable.SelectedValue.ToString().Trim();
-
             }
+            this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
         private void cboTable_SelectedValueChanged(object sender, EventArgs e)

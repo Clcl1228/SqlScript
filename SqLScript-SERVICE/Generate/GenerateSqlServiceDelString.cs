@@ -14,11 +14,12 @@ namespace ScriptService
         public override string GenerateSql(DataGridView dataGridView,string tName)
         {
             string rMsg = "", rSql = "";
+            tName = tName.ToUpper();
             foreach (DataGridViewRow item in dataGridView.Rows)
             {
                 string isDel = item.Cells[0].Value==null?"":item.Cells[0].Value.ToString();
-                string table = item.Cells[1].Value == null ? tName : item.Cells[1].Value.ToString() == "" ? tName : item.Cells[1].Value.ToString();
-                string name = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
+                string table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString() == "" ? tName : item.Cells[3].Value.ToString().ToUpper();
+                string name = item.Cells[1].Value == null ? "" : item.Cells[1].Value.ToString();
 
                 if (isDel=="True" && name != "")
                 {
@@ -27,7 +28,7 @@ namespace ScriptService
                         bool flag = DbHelperSQL.TabExists(table);
                         if (!flag) { throw new Exception("表" + table + "不存在"); }
                     }
-                    rSql += @"alter table {0} drop column {1}" + "\r\n" + "";
+                    rSql += "\r\n" + @"alter table {0} drop column {1}";
                     rSql = string.Format(rSql, table, name);
                 }
             }

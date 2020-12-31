@@ -29,6 +29,7 @@ namespace WinApp_SqlScript
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cboTable = new System.Windows.Forms.ComboBox();
             this.btnClearSql = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,14 +38,19 @@ namespace WinApp_SqlScript
             this.txtSql = new System.Windows.Forms.TextBox();
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAddRow = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.delRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cboDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
             this.groupSql.SuspendLayout();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboTable
@@ -59,7 +65,7 @@ namespace WinApp_SqlScript
             // btnClearSql
             // 
             this.btnClearSql.AccessibleName = "表名";
-            this.btnClearSql.Location = new System.Drawing.Point(611, 294);
+            this.btnClearSql.Location = new System.Drawing.Point(611, 331);
             this.btnClearSql.Name = "btnClearSql";
             this.btnClearSql.Size = new System.Drawing.Size(100, 23);
             this.btnClearSql.TabIndex = 14;
@@ -81,7 +87,7 @@ namespace WinApp_SqlScript
             // btnCreateSqlO
             // 
             this.btnCreateSqlO.AccessibleName = "表名";
-            this.btnCreateSqlO.Location = new System.Drawing.Point(611, 175);
+            this.btnCreateSqlO.Location = new System.Drawing.Point(611, 221);
             this.btnCreateSqlO.Name = "btnCreateSqlO";
             this.btnCreateSqlO.Size = new System.Drawing.Size(100, 23);
             this.btnCreateSqlO.TabIndex = 12;
@@ -127,11 +133,57 @@ namespace WinApp_SqlScript
             this.字段名,
             this.字段注释,
             this.表名});
-            this.gvdataRow.Location = new System.Drawing.Point(6, 20);
+            this.gvdataRow.Location = new System.Drawing.Point(29, 20);
             this.gvdataRow.Name = "gvdataRow";
             this.gvdataRow.RowTemplate.Height = 23;
             this.gvdataRow.Size = new System.Drawing.Size(549, 371);
             this.gvdataRow.TabIndex = 0;
+            this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
+            this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
+            // 
+            // btnSave
+            // 
+            this.btnSave.AccessibleName = "表名";
+            this.btnSave.Location = new System.Drawing.Point(611, 275);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 23);
+            this.btnSave.TabIndex = 17;
+            this.btnSave.Text = "保存到文件";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnAddRow
+            // 
+            this.btnAddRow.AccessibleName = "表名";
+            this.btnAddRow.Location = new System.Drawing.Point(611, 164);
+            this.btnAddRow.Name = "btnAddRow";
+            this.btnAddRow.Size = new System.Drawing.Size(100, 23);
+            this.btnAddRow.TabIndex = 18;
+            this.btnAddRow.Text = "添加行";
+            this.btnAddRow.UseVisualStyleBackColor = true;
+            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delRow,
+            this.添加行ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
+            // 
+            // delRow
+            // 
+            this.delRow.Name = "delRow";
+            this.delRow.Size = new System.Drawing.Size(112, 22);
+            this.delRow.Text = "删除";
+            this.delRow.Click += new System.EventHandler(this.delRow_Click);
+            // 
+            // 添加行ToolStripMenuItem
+            // 
+            this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
+            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.添加行ToolStripMenuItem.Text = "添加行";
+            this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
             // 
             // cboDel
             // 
@@ -163,22 +215,12 @@ namespace WinApp_SqlScript
             this.表名.Name = "表名";
             this.表名.Width = 130;
             // 
-            // btnSave
-            // 
-            this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(611, 235);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 23);
-            this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "保存到文件";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // SqlScript_Del
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 421);
+            this.Controls.Add(this.btnAddRow);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboTable);
             this.Controls.Add(this.btnClearSql);
@@ -186,13 +228,15 @@ namespace WinApp_SqlScript
             this.Controls.Add(this.btnCreateSqlO);
             this.Controls.Add(this.groupSql);
             this.Controls.Add(this.groupAdd);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SqlScript_Del";
-            this.Text = "SqlScript_Del";
             this.Load += new System.EventHandler(this.SqlScript_Del_Load);
             this.groupSql.ResumeLayout(false);
             this.groupSql.PerformLayout();
             this.groupAdd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -207,10 +251,14 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.TextBox txtSql;
         private System.Windows.Forms.GroupBox groupAdd;
         private System.Windows.Forms.DataGridView gvdataRow;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnAddRow;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem delRow;
+        private System.Windows.Forms.ToolStripMenuItem 添加行ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cboDel;
         private System.Windows.Forms.DataGridViewTextBoxColumn 字段名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 字段注释;
         private System.Windows.Forms.DataGridViewTextBoxColumn 表名;
-        private System.Windows.Forms.Button btnSave;
     }
 }

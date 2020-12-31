@@ -33,7 +33,6 @@ namespace WinApp_SqlScript
             this.新增字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更新字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,8 +41,7 @@ namespace WinApp_SqlScript
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新增字段ToolStripMenuItem,
             this.删除字段ToolStripMenuItem,
-            this.更新字段ToolStripMenuItem,
-            this.查询ToolStripMenuItem});
+            this.更新字段ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1220, 25);
@@ -71,12 +69,6 @@ namespace WinApp_SqlScript
             this.更新字段ToolStripMenuItem.Text = "更新字段";
             this.更新字段ToolStripMenuItem.Click += new System.EventHandler(this.更新字段ToolStripMenuItem_Click);
             // 
-            // 查询ToolStripMenuItem
-            // 
-            this.查询ToolStripMenuItem.Name = "查询ToolStripMenuItem";
-            this.查询ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.查询ToolStripMenuItem.Text = "查询";
-            // 
             // SqlScriptMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -99,7 +91,6 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.ToolStripMenuItem 新增字段ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除字段ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 更新字段ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 查询ToolStripMenuItem;
     }
 }
 

@@ -56,36 +56,25 @@ namespace WinApp_SqlScript
 
         private void 删除字段ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (SqlConnectionM.Status != "1")
+            if (del == null)
             {
-                throw new Exception("数据库未连接");
+                this.IsMdiContainer = true;
+                del = new SqlScript_Del();
+                del.MdiParent = this;
+                del.Show();
+                del.Dock = DockStyle.Fill;
             }
             else
             {
-                if (del == null)
-                {
-                    this.IsMdiContainer = true;
-                    del = new SqlScript_Del();
-                    del.MdiParent = this;
-                    del.Show();
-                    del.Dock = DockStyle.Fill;
-                }
-                else
-                {
-                    del.BringToFront();
-                }
+                del.BringToFront();
             }
         }
 
         private void 更新字段ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (SqlConnectionM.Status != "1")
+            if (SqlConnectionM.Status == "1")
             {
-                throw new Exception("数据库未连接");
-            }
-            else
-            {
-                if (del == null)
+                if (update == null)
                 {
                     this.IsMdiContainer = true;
                     update = new SqlScript_Update();
@@ -97,6 +86,10 @@ namespace WinApp_SqlScript
                 {
                     update.BringToFront();
                 }
+            }
+            else
+            {
+                throw new Exception("数据库未连接");
             }
         }
     }

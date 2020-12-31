@@ -15,12 +15,13 @@ namespace ScriptService
         public override string GenerateSql(DataGridView dataGridView,string tName)
         {
             string rMsg = "", rSql = "";
+            tName = tName.ToUpper();
             foreach (DataGridViewRow item in dataGridView.Rows)
             {
                 string isDel = item.Cells[0].Value == null ? "" : item.Cells[0].Value.ToString();
                 string name = item.Cells[1].Value == null ? "" : item.Cells[1].Value.ToString();
                 string msg = item.Cells[3].Value == null ? "" : item.Cells[3].Value.ToString();
-                string table = item.Cells[4].Value == null ? tName : item.Cells[4].Value.ToString()==""?tName: item.Cells[4].Value.ToString();
+                string table = item.Cells[4].Value == null ? tName : item.Cells[4].Value.ToString()==""?tName: item.Cells[4].Value.ToString().ToUpper();
 
                 if (SqlConnectionM.Status == "1" && SqlConnectionM.ServerType == "SqlServer")
                 {

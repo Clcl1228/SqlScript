@@ -29,6 +29,7 @@ namespace WinApp_SqlScript
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSave = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
             this.btnClearSql = new System.Windows.Forms.Button();
@@ -39,15 +40,19 @@ namespace WinApp_SqlScript
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
             this.cboDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.delRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupSql.SuspendLayout();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.AccessibleName = "表名";
-            this.btnSave.Location = new System.Drawing.Point(610, 236);
+            this.btnSave.Location = new System.Drawing.Point(610, 293);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 24;
@@ -67,7 +72,7 @@ namespace WinApp_SqlScript
             // btnClearSql
             // 
             this.btnClearSql.AccessibleName = "表名";
-            this.btnClearSql.Location = new System.Drawing.Point(610, 295);
+            this.btnClearSql.Location = new System.Drawing.Point(610, 335);
             this.btnClearSql.Name = "btnClearSql";
             this.btnClearSql.Size = new System.Drawing.Size(100, 23);
             this.btnClearSql.TabIndex = 22;
@@ -89,7 +94,7 @@ namespace WinApp_SqlScript
             // btnOracleSave
             // 
             this.btnOracleSave.AccessibleName = "表名";
-            this.btnOracleSave.Location = new System.Drawing.Point(610, 176);
+            this.btnOracleSave.Location = new System.Drawing.Point(610, 156);
             this.btnOracleSave.Name = "btnOracleSave";
             this.btnOracleSave.Size = new System.Drawing.Size(100, 23);
             this.btnOracleSave.TabIndex = 20;
@@ -137,6 +142,8 @@ namespace WinApp_SqlScript
             this.gvdataRow.RowTemplate.Height = 23;
             this.gvdataRow.Size = new System.Drawing.Size(537, 371);
             this.gvdataRow.TabIndex = 0;
+            this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
+            this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
             // 
             // cboDel
             // 
@@ -145,6 +152,28 @@ namespace WinApp_SqlScript
             this.cboDel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cboDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.cboDel.Width = 80;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delRow,
+            this.添加行ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
+            // 
+            // delRow
+            // 
+            this.delRow.Name = "delRow";
+            this.delRow.Size = new System.Drawing.Size(180, 22);
+            this.delRow.Text = "删除";
+            this.delRow.Click += new System.EventHandler(this.delRow_Click);
+            // 
+            // 添加行ToolStripMenuItem
+            // 
+            this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
+            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.添加行ToolStripMenuItem.Text = "添加行";
+            this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
             // 
             // SqlScript_Update
             // 
@@ -159,12 +188,12 @@ namespace WinApp_SqlScript
             this.Controls.Add(this.groupSql);
             this.Controls.Add(this.groupAdd);
             this.Name = "SqlScript_Update";
-            this.Text = "SqlScript_Update";
             this.Load += new System.EventHandler(this.SqlScript_Update_Load);
             this.groupSql.ResumeLayout(false);
             this.groupSql.PerformLayout();
             this.groupAdd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -181,5 +210,8 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.GroupBox groupAdd;
         private System.Windows.Forms.DataGridView gvdataRow;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cboDel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem delRow;
+        private System.Windows.Forms.ToolStripMenuItem 添加行ToolStripMenuItem;
     }
 }

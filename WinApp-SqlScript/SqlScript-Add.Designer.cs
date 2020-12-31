@@ -32,12 +32,6 @@ namespace WinApp_SqlScript
             this.components = new System.ComponentModel.Container();
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
-            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.是否必填 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.默认值 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupSql = new System.Windows.Forms.GroupBox();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.btnAddRow = new System.Windows.Forms.Button();
@@ -50,6 +44,12 @@ namespace WinApp_SqlScript
             this.btnClearGvData = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMsg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
             this.groupSql.SuspendLayout();
@@ -70,12 +70,12 @@ namespace WinApp_SqlScript
             // 
             this.gvdataRow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvdataRow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.字段名,
-            this.cboFieldType,
-            this.字段注释,
-            this.表名,
-            this.是否必填,
-            this.默认值});
+            this.txtName,
+            this.txtFieldType,
+            this.txtMsg,
+            this.txtTable,
+            this.txtIsNull,
+            this.txtDefault});
             this.gvdataRow.Location = new System.Drawing.Point(6, 20);
             this.gvdataRow.Name = "gvdataRow";
             this.gvdataRow.RowTemplate.Height = 23;
@@ -84,42 +84,6 @@ namespace WinApp_SqlScript
             this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
             this.gvdataRow.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gvdataRow_RowsAdded);
-            // 
-            // 字段名
-            // 
-            this.字段名.HeaderText = "字段名";
-            this.字段名.Name = "字段名";
-            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // cboFieldType
-            // 
-            this.cboFieldType.HeaderText = "字段类型";
-            this.cboFieldType.Name = "cboFieldType";
-            this.cboFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cboFieldType.Width = 80;
-            // 
-            // 字段注释
-            // 
-            this.字段注释.HeaderText = "字段注释";
-            this.字段注释.Name = "字段注释";
-            // 
-            // 表名
-            // 
-            this.表名.HeaderText = "表名(默认当前表)";
-            this.表名.Name = "表名";
-            this.表名.Width = 130;
-            // 
-            // 是否必填
-            // 
-            this.是否必填.HeaderText = "是否必填";
-            this.是否必填.Name = "是否必填";
-            this.是否必填.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.是否必填.Width = 70;
-            // 
-            // 默认值
-            // 
-            this.默认值.HeaderText = "默认值";
-            this.默认值.Name = "默认值";
             // 
             // groupSql
             // 
@@ -238,6 +202,42 @@ namespace WinApp_SqlScript
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtName
+            // 
+            this.txtName.HeaderText = "字段名";
+            this.txtName.Name = "txtName";
+            this.txtName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // txtFieldType
+            // 
+            this.txtFieldType.HeaderText = "字段类型";
+            this.txtFieldType.Name = "txtFieldType";
+            this.txtFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtFieldType.Width = 80;
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.HeaderText = "字段注释";
+            this.txtMsg.Name = "txtMsg";
+            // 
+            // txtTable
+            // 
+            this.txtTable.HeaderText = "表名(默认当前表)";
+            this.txtTable.Name = "txtTable";
+            this.txtTable.Width = 130;
+            // 
+            // txtIsNull
+            // 
+            this.txtIsNull.HeaderText = "是否必填";
+            this.txtIsNull.Name = "txtIsNull";
+            this.txtIsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtIsNull.Width = 70;
+            // 
+            // txtDefault
+            // 
+            this.txtDefault.HeaderText = "默认值";
+            this.txtDefault.Name = "txtDefault";
+            // 
             // SqlScript_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -280,12 +280,12 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.Button btnClearGvData;
         private System.Windows.Forms.ToolStripMenuItem 添加行ToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 字段名;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cboFieldType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 字段注释;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 表名;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn 是否必填;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 默认值;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtFieldType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtMsg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtTable;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn txtIsNull;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDefault;
     }
 }
