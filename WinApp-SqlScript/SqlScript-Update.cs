@@ -54,9 +54,9 @@ namespace WinApp_SqlScript
                 BindData();
 
                 this.gvdataRow.Columns[1].DefaultCellStyle.BackColor = Color.Orange;
-                this.gvdataRow.Columns[2].DefaultCellStyle.BackColor = Color.Orange;
+                this.gvdataRow.Columns[3].DefaultCellStyle.BackColor = Color.Orange;
                 if(SqlConnectionM.Status!="1")
-                this.gvdataRow.Columns[4].DefaultCellStyle.BackColor = Color.Orange;
+                this.gvdataRow.Columns[5].DefaultCellStyle.BackColor = Color.Orange;
             }
             this.FormBorderStyle = FormBorderStyle.None;
         }

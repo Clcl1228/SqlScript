@@ -52,7 +52,7 @@ order by ut.column_name ";
         public DataTable GetSqlServerUpdateFieldToTable(string tableName)
         {
             string sql = @" SELECT
-       C.name as [字段名],'' as [字段类型]
+       C.name as [字段名],'' [修改后字段名],'' as [字段类型]
       ,'' AS [字段描述]
       ,'{0}' AS [表名]
  FROM syscolumns C
@@ -66,7 +66,7 @@ order by ut.column_name ";
         }
         public DataTable GetOracleUpdateFieldToTable(string tableName)
         {
-            string sql = @"select t.COLUMN_NAME AS 字段名 ,'' AS 字段类型 ,'' AS 字段描述,{0} as 表名
+            string sql = @"select t.COLUMN_NAME AS 字段名 ,'' [修改后字段名],'' AS 字段类型 ,'' AS 字段描述,{0} as 表名
  from user_tab_columns t,user_col_comments c
  where t.table_name = c.table_name and t.column_name = c.column_name and t.table_name ='{0}'";
             sql = String.Format(sql, tableName);

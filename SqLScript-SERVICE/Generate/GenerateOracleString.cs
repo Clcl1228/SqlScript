@@ -14,18 +14,18 @@ namespace ScriptService
         SqlOrOracleFieldType fType = new SqlOrOracleFieldType();
         public override string GenerateSql(DataGridView dataGridView,string tName)
         {
-            string rMsg = "", rSql = "";
+            string rMsg = "", rSql = ""; 
             tName = tName.ToUpper();
             foreach (DataGridViewRow item in dataGridView.Rows)
             {
-                string Name = item.Cells[0].Value == null ? "" : item.Cells[0].Value.ToString().ToUpper();
-                string type = item.Cells[1].Value == null ? "" : GetFieldType(item.Cells[1].Value.ToString());
-                string msg = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
-                string table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString()==""?tName: item.Cells[3].Value.ToString().ToUpper();
-                string isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
+                string Name = item.Cells["txtName"].Value == null ? "" : item.Cells["txtName"].Value.ToString().ToUpper();
+                string type = item.Cells["txtFieldType"].Value == null ? "" : GetFieldType(item.Cells["txtFieldType"].Value.ToString());
+                string msg = item.Cells["txtMsg"].Value == null ? "" : item.Cells["txtMsg"].Value.ToString();
+                string table = item.Cells["txtTable"].Value == null ? tName : item.Cells["txtTable"].Value.ToString()==""?tName: item.Cells["txtTable"].Value.ToString().ToUpper();
+                string isNull = item.Cells["txtIsNull"].Value == null ? " NULL" : " NOT NULL";
 
-                bool isNum = int.TryParse(item.Cells[5].Value == null ? "" : item.Cells[5].Value.ToString(), out int defN);
-                string def = item.Cells[4].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells[4].Value.ToString() : "''" + item.Cells[4].Value.ToString() + "''");
+                bool isNum = int.TryParse(item.Cells["txtDefault"].Value == null ? "" : item.Cells["txtDefault"].Value.ToString(), out int defN);
+                string def = item.Cells["txtIsNull"].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells["txtIsNull"].Value.ToString() : "''" + item.Cells["txtIsNull"].Value.ToString() + "''");
 
 
                 if (SqlConnectionM.Status == "1" && SqlConnectionM.ServerType=="Oracle")
@@ -42,7 +42,7 @@ begin
     execute immediate 'ALTER TABLE {0} ADD {1} {2} {4} {3}';
   end if;
   cnt:=0;
-end;" + "\r\n" + "";
+end;""\r\n";
                     rSql = string.Format(rSql, table, Name, type, isNull, def);
                     if (msg != "")
                     {
@@ -52,7 +52,8 @@ end;" + "\r\n" + "";
                 }
             }
 
-            return rSql + "\r\n" + rMsg;
+            return rSql == "" ? rSql : ("--Oracle新增字段" + "\r\n" + rSql)
+                + "\r\n" + rMsg==""?rMsg: ("--Oracle新增注释" + "\r\n"+rMsg);
         }
         public string GetFieldType(string type)
         {

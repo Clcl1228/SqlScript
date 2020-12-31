@@ -13,13 +13,13 @@ namespace ScriptService
     {
         public override string GenerateSql(DataGridView dataGridView,string tName)
         {
-            string rMsg = "", rSql = "";
+            string  rSql = "";
             tName = tName.ToUpper();
             foreach (DataGridViewRow item in dataGridView.Rows)
             {
-                string isDel = item.Cells[0].Value==null?"":item.Cells[0].Value.ToString();
-                string table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString() == "" ? tName : item.Cells[3].Value.ToString().ToUpper();
-                string name = item.Cells[1].Value == null ? "" : item.Cells[1].Value.ToString();
+                string isDel = item.Cells["勾选删除"].Value==null?"":item.Cells["勾选删除"].Value.ToString();
+                string table = item.Cells["表名"].Value == null ? tName : item.Cells["表名"].Value.ToString() == "" ? tName : item.Cells["表名"].Value.ToString().ToUpper();
+                string name = item.Cells["字段名"].Value == null ? "" : item.Cells["字段名"].Value.ToString();
 
                 if (isDel=="True" && name != "")
                 {
@@ -33,7 +33,7 @@ namespace ScriptService
                 }
             }
 
-            return rSql;
+            return rSql == "" ? rSql : ("--SqlServer删除字段" + "\r\n" + rSql);
         }
     }
 }

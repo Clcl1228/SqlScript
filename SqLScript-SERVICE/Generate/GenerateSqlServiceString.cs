@@ -18,13 +18,14 @@ namespace ScriptService
             tName = tName.ToUpper();
             foreach (DataGridViewRow item in dataGridView.Rows)
             {
-                bool isNum = int.TryParse(item.Cells[5].Value==null?"":item.Cells[5].Value.ToString(), out int defN);
-                name = item.Cells[0].Value == null ? "" : item.Cells[0].Value.ToString().ToUpper();
-                type = item.Cells[1].Value == null ? "" : GetFieldType(item.Cells[1].Value.ToString());
-                msg = item.Cells[2].Value == null ? "" : item.Cells[2].Value.ToString();
-                table = item.Cells[3].Value == null ? tName : item.Cells[3].Value.ToString() == "" ? tName : item.Cells[3].Value.ToString().ToUpper();
-                isNull = item.Cells[4].Value == null ? " NULL" : " NOT NULL";
-                def = item.Cells[5].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells[5].Value.ToString() : "'" + item.Cells[5].Value.ToString() + "'");
+                bool isNum = int.TryParse(item.Cells["txtDefault"].Value == null ? "" : item.Cells["txtDefault"].Value.ToString(), out int defN);
+                name = item.Cells["txtName"].Value == null ? "" : item.Cells["txtName"].Value.ToString().ToUpper();
+                type = item.Cells["txtFieldType"].Value == null ? "" : GetFieldType(item.Cells["txtFieldType"].Value.ToString());
+                msg = item.Cells["txtMsg"].Value == null ? "" : item.Cells["txtMsg"].Value.ToString();
+                table = item.Cells["txtTable"].Value == null ? tName : item.Cells["txtTable"].Value.ToString() == "" ? tName : item.Cells["txtTable"].Value.ToString().ToUpper();
+                isNull = item.Cells["txtIsNull"].Value == null ? " NULL" : " NOT NULL";
+
+                def = item.Cells["txtIsNull"].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells["txtIsNull"].Value.ToString() : "'" + item.Cells["txtIsNull"].Value.ToString() + "'");
 
 
                 if (SqlConnectionM.Status == "1" && SqlConnectionM.ServerType == "SqlServer")
@@ -34,7 +35,7 @@ namespace ScriptService
                 }
                 if (table != "" && name != "" && type != "")
                 {
-                    rSql += "\r\n" + @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}" + "\r\n" + @" END";
+                    rSql +=  @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}" + "\r\n" + @" END";
                     if (msg == "")
                     {
                         bz = "";
@@ -45,10 +46,12 @@ namespace ScriptService
                         bz = String.Format(bz, table, name, msg);
                     }
                     rSql = string.Format(rSql, table, name, type, isNull, def, msg, bz);
+                    rSql += "\r\n";
                 }
             }
 
-            return rSql + "\r\n";
+            return rSql == "" ? rSql : ("--SqlServer新增字段" + "\r\n" + rSql)
+                + "\r\n" + rMsg == "" ? rMsg : ("--SqlServer新增注释" + "\r\n" + rMsg);
         }
         public string GetFieldType(string type)
         {

@@ -38,15 +38,15 @@ namespace WinApp_SqlScript
             this.txtSql = new System.Windows.Forms.TextBox();
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
-            this.cboDel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddRow = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delRow = new System.Windows.Forms.ToolStripMenuItem();
             this.添加行ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.勾选删除 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.字段注释 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.表名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupSql.SuspendLayout();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
@@ -129,7 +129,7 @@ namespace WinApp_SqlScript
             // 
             this.gvdataRow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvdataRow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cboDel,
+            this.勾选删除,
             this.字段名,
             this.字段注释,
             this.表名});
@@ -140,36 +140,6 @@ namespace WinApp_SqlScript
             this.gvdataRow.TabIndex = 0;
             this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
-            // 
-            // cboDel
-            // 
-            this.cboDel.HeaderText = "勾选删除";
-            this.cboDel.Name = "cboDel";
-            this.cboDel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cboDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cboDel.Width = 80;
-            // 
-            // 字段名
-            // 
-            this.字段名.DataPropertyName = "column_name";
-            this.字段名.HeaderText = "字段名";
-            this.字段名.Name = "字段名";
-            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.字段名.Width = 120;
-            // 
-            // 字段注释
-            // 
-            this.字段注释.DataPropertyName = "column_description";
-            this.字段注释.HeaderText = "字段注释";
-            this.字段注释.Name = "字段注释";
-            this.字段注释.Width = 200;
-            // 
-            // 表名
-            // 
-            this.表名.DataPropertyName = "table_name";
-            this.表名.HeaderText = "表名";
-            this.表名.Name = "表名";
-            this.表名.Width = 130;
             // 
             // btnSave
             // 
@@ -215,6 +185,36 @@ namespace WinApp_SqlScript
             this.添加行ToolStripMenuItem.Text = "添加行";
             this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
             // 
+            // 勾选删除
+            // 
+            this.勾选删除.HeaderText = "勾选删除";
+            this.勾选删除.Name = "勾选删除";
+            this.勾选删除.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.勾选删除.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.勾选删除.Width = 80;
+            // 
+            // 字段名
+            // 
+            this.字段名.DataPropertyName = "column_name";
+            this.字段名.HeaderText = "字段名";
+            this.字段名.Name = "字段名";
+            this.字段名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.字段名.Width = 120;
+            // 
+            // 字段注释
+            // 
+            this.字段注释.DataPropertyName = "column_description";
+            this.字段注释.HeaderText = "字段注释";
+            this.字段注释.Name = "字段注释";
+            this.字段注释.Width = 200;
+            // 
+            // 表名
+            // 
+            this.表名.DataPropertyName = "table_name";
+            this.表名.HeaderText = "表名";
+            this.表名.Name = "表名";
+            this.表名.Width = 130;
+            // 
             // SqlScript_Del
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,7 +256,7 @@ namespace WinApp_SqlScript
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem delRow;
         private System.Windows.Forms.ToolStripMenuItem 添加行ToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cboDel;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn 勾选删除;
         private System.Windows.Forms.DataGridViewTextBoxColumn 字段名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 字段注释;
         private System.Windows.Forms.DataGridViewTextBoxColumn 表名;
