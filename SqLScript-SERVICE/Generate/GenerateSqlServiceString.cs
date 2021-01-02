@@ -25,7 +25,7 @@ namespace ScriptService
                 table = item.Cells["txtTable"].Value == null ? tName : item.Cells["txtTable"].Value.ToString() == "" ? tName : item.Cells["txtTable"].Value.ToString().ToUpper();
                 isNull = item.Cells["txtIsNull"].Value == null ? " NULL" : " NOT NULL";
 
-                def = item.Cells["txtIsNull"].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells["txtIsNull"].Value.ToString() : "'" + item.Cells["txtIsNull"].Value.ToString() + "'");
+                def = item.Cells["txtIsNull"].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells["txtDefault"].Value.ToString() : "'" + item.Cells["txtDefault"].Value.ToString() + "'");
 
 
                 if (SqlConnectionM.Status == "1" && SqlConnectionM.ServerType == "SqlServer")

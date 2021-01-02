@@ -25,7 +25,7 @@ namespace ScriptService
                 string isNull = item.Cells["txtIsNull"].Value == null ? " NULL" : " NOT NULL";
 
                 bool isNum = int.TryParse(item.Cells["txtDefault"].Value == null ? "" : item.Cells["txtDefault"].Value.ToString(), out int defN);
-                string def = item.Cells["txtIsNull"].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells["txtIsNull"].Value.ToString() : "''" + item.Cells["txtIsNull"].Value.ToString() + "''");
+                string def = item.Cells["txtIsNull"].Value == null ? "" : "DEFAULT " + (isNum == true ? item.Cells["txtDefault"].Value.ToString() : "''" + item.Cells["txtDefault"].Value.ToString() + "''");
 
 
                 if (SqlConnectionM.Status == "1" && SqlConnectionM.ServerType=="Oracle")
@@ -42,7 +42,7 @@ begin
     execute immediate 'ALTER TABLE {0} ADD {1} {2} {4} {3}';
   end if;
   cnt:=0;
-end;""\r\n";
+end;"+"\r\n";
                     rSql = string.Format(rSql, table, Name, type, isNull, def);
                     if (msg != "")
                     {

@@ -30,7 +30,7 @@ namespace ScriptService
                         if (!flag) { throw new Exception("表" + table + "不存在"); }
                     }
                     
-                    rSql += @"alter table {0} drop column {1}" + "\r\n" + "";
+                    rSql += @"alter table {0} drop column {1} ;" + "\r\n" + "";
                     rSql = string.Format(rSql, table, name);
                 }
             }
