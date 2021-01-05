@@ -68,12 +68,12 @@ namespace WinApp_SqlScript
         {
             if(SqlConnectionM.ServerType == "SqlServer")
             {
-                DataTable dt = dataService.GetSqlServerDelFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
+                DataTable dt = dataService.GetSqlServerDelFieldToTable(this.cboTable.Text.ToString().Trim());
                 this.gvdataRow.DataSource = dt;
             }
             else
             {
-                DataTable dt = dataService.GetOracleDelFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
+                DataTable dt = dataService.GetOracleDelFieldToTable(this.cboTable.Text.ToString().Trim());
                 this.gvdataRow.DataSource = dt;
             }
             
@@ -87,7 +87,7 @@ namespace WinApp_SqlScript
         private void button2_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceDelString());
-            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.Text == null ? "" : cboTable.Text.ToString().Trim());
             txtSql.Text = msg;
         }
 
@@ -103,8 +103,8 @@ namespace WinApp_SqlScript
 
         private void btnCreateSqlO_Click(object sender, EventArgs e)
         {
-            generateService = new GenerateSqlService(new GenerateSqlServiceDelString());
-            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
+            generateService = new GenerateSqlService(new GenerateOracleDelString());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.Text == null ? "" : cboTable.Text.ToString().Trim());
             txtSql.Text = msg;
         }
 

@@ -32,6 +32,12 @@ namespace WinApp_SqlScript
             this.components = new System.ComponentModel.Container();
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.gvdataRow = new System.Windows.Forms.DataGridView();
+            this.txtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMsg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupSql = new System.Windows.Forms.GroupBox();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.btnAddRow = new System.Windows.Forms.Button();
@@ -44,12 +50,6 @@ namespace WinApp_SqlScript
             this.btnClearGvData = new System.Windows.Forms.Button();
             this.cboTable = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtFieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMsg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIsNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvdataRow)).BeginInit();
             this.groupSql.SuspendLayout();
@@ -84,6 +84,42 @@ namespace WinApp_SqlScript
             this.gvdataRow.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvdataRow_CellMouseDown);
             this.gvdataRow.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvdataRow_CellMouseEnter);
             this.gvdataRow.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gvdataRow_RowsAdded);
+            // 
+            // txtName
+            // 
+            this.txtName.HeaderText = "字段名";
+            this.txtName.Name = "txtName";
+            this.txtName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // txtFieldType
+            // 
+            this.txtFieldType.HeaderText = "字段类型";
+            this.txtFieldType.Name = "txtFieldType";
+            this.txtFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtFieldType.Width = 80;
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.HeaderText = "字段注释";
+            this.txtMsg.Name = "txtMsg";
+            // 
+            // txtTable
+            // 
+            this.txtTable.HeaderText = "表名(默认当前表)";
+            this.txtTable.Name = "txtTable";
+            this.txtTable.Width = 130;
+            // 
+            // txtIsNull
+            // 
+            this.txtIsNull.HeaderText = "是否必填";
+            this.txtIsNull.Name = "txtIsNull";
+            this.txtIsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtIsNull.Width = 70;
+            // 
+            // txtDefault
+            // 
+            this.txtDefault.HeaderText = "默认值";
+            this.txtDefault.Name = "txtDefault";
             // 
             // groupSql
             // 
@@ -201,42 +237,6 @@ namespace WinApp_SqlScript
             this.btnSave.Text = "保存到文件";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtName
-            // 
-            this.txtName.HeaderText = "字段名";
-            this.txtName.Name = "txtName";
-            this.txtName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // txtFieldType
-            // 
-            this.txtFieldType.HeaderText = "字段类型";
-            this.txtFieldType.Name = "txtFieldType";
-            this.txtFieldType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtFieldType.Width = 80;
-            // 
-            // txtMsg
-            // 
-            this.txtMsg.HeaderText = "字段注释";
-            this.txtMsg.Name = "txtMsg";
-            // 
-            // txtTable
-            // 
-            this.txtTable.HeaderText = "表名(默认当前表)";
-            this.txtTable.Name = "txtTable";
-            this.txtTable.Width = 130;
-            // 
-            // txtIsNull
-            // 
-            this.txtIsNull.HeaderText = "是否必填";
-            this.txtIsNull.Name = "txtIsNull";
-            this.txtIsNull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.txtIsNull.Width = 70;
-            // 
-            // txtDefault
-            // 
-            this.txtDefault.HeaderText = "默认值";
-            this.txtDefault.Name = "txtDefault";
             // 
             // SqlScript_Add
             // 

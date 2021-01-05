@@ -65,10 +65,19 @@ where objname = '{1}'
                     rUp = String.Format(rUp, table, name, updateName);
                 }
             }
-
-            return rSql == "" ? rSql : ("--SqlServer修改字段类型" + "\r\n" + rSql)
-          + "\n\r" + (rMsg == "" ? rMsg : ("--SqlServer修改注释" + "\r\n" + rMsg))
-          + "\n\r" + (rUp == "" ? rUp : ("--SqlServer修改字段名" + "\r\n" + rUp));
+            if (rSql != "")
+            {
+                rSql = "--SqlServer修改字段类型" + "\r\n" + rSql;
+            }
+            if (rMsg != "")
+            {
+                rMsg = "--SqlServer修改注释" + "\r\n" + rMsg;
+            }
+            if (rUp != "")
+            {
+                rUp = "--SqlServer修改字段名" + "\r\n" + rUp;
+            }
+            return rSql + "\n\r" + rMsg + "\n\r" + rUp;
         }
         public string GetFieldType(string type)
         {

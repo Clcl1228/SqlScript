@@ -51,9 +51,15 @@ end;"+"\r\n";
                     }
                 }
             }
-
-            return rSql == "" ? rSql : ("--Oracle新增字段" + "\r\n" + rSql)
-                + "\r\n" + (rMsg==""?rMsg: ("--Oracle新增注释" + "\r\n"+rMsg));
+            if (rSql != "")
+            {
+                rSql = "--Oracle新增字段" + "\r\n" + rSql;
+            }
+            if (rMsg != "")
+            {
+                rMsg = "--Oracle新增注释" + "\r\n" + rMsg;
+            }
+            return rSql+ "\r\n"+rMsg;
         }
         public string GetFieldType(string type)
         {

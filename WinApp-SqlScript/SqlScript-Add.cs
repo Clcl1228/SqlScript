@@ -74,7 +74,7 @@ namespace WinApp_SqlScript
         private void btnCreateSqlS(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceString());
-            string msg=generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
+            string msg=generateService.CreateSqlString(gvdataRow, cboTable.Text == null ? "" : cboTable.Text.ToString().Trim());
             txtSql.Text = msg;
         }
 
@@ -82,7 +82,7 @@ namespace WinApp_SqlScript
         private void btnCreateSqlO_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateOracleString());
-            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.Text == null ? "" : cboTable.Text.ToString().Trim());
             txtSql.Text = msg;
         }
 
@@ -122,7 +122,7 @@ namespace WinApp_SqlScript
                 this.cboTable.DataSource = dt;
                 this.cboTable.DisplayMember = "name";
                 this.cboTable.ValueMember = "name";
-                SqlConnectionM.TableName = this.cboTable.SelectedValue.ToString().Trim();
+                SqlConnectionM.TableName = this.cboTable.Text.ToString().Trim();
             }
             this.FormBorderStyle = FormBorderStyle.None;
 
@@ -130,7 +130,7 @@ namespace WinApp_SqlScript
 
         private void cboTable_SelectedValueChanged(object sender, EventArgs e)
         {
-            SqlConnectionM.TableName = this.cboTable.SelectedValue.ToString().Trim();
+            SqlConnectionM.TableName = this.cboTable.Text.ToString().Trim();
         }
 
         private void gvdataRow_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

@@ -64,14 +64,14 @@ namespace WinApp_SqlScript
         {
             if (SqlConnectionM.ServerType == "SqlServer")
             {
-                DataTable dt = dataService.GetSqlServerUpdateFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
+                DataTable dt = dataService.GetSqlServerUpdateFieldToTable(this.cboTable.Text.ToString().Trim());
                 this.gvdataRow.AutoGenerateColumns = true;
                 this.gvdataRow.DataSource = dt;
                 //this.gvdataRow.DataMember = "FieldName";
             }
             else
             {
-                DataTable dt = dataService.GetOracleUpdateFieldToTable(this.cboTable.SelectedValue.ToString().Trim());
+                DataTable dt = dataService.GetOracleUpdateFieldToTable(this.cboTable.Text.ToString().Trim());
                 this.gvdataRow.DataSource = dt;
             }
 
@@ -90,7 +90,7 @@ namespace WinApp_SqlScript
         private void btnSqlServerSave_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateSqlServiceUpdateString());
-            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.Text == null ? "" : cboTable.Text.ToString().Trim());
             txtSql.Text = msg;
         }
 
@@ -102,7 +102,7 @@ namespace WinApp_SqlScript
         private void btnOracleSave_Click(object sender, EventArgs e)
         {
             generateService = new GenerateSqlService(new GenerateOracleUpdateString());
-            string msg = generateService.CreateSqlString(gvdataRow, cboTable.SelectedValue == null ? "" : cboTable.SelectedValue.ToString().Trim());
+            string msg = generateService.CreateSqlString(gvdataRow, cboTable.Text == null ? "" : cboTable.Text.ToString().Trim());
             txtSql.Text = msg;
         }
 

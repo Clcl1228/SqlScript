@@ -49,9 +49,15 @@ namespace ScriptService
                     rSql += "\r\n";
                 }
             }
-
-            return rSql == "" ? rSql : ("--SqlServer新增字段" + "\r\n" + rSql)
-                + "\r\n" + (rMsg == "" ? rMsg : ("--SqlServer新增注释" + "\r\n" + rMsg));
+            if (rSql != "")
+            {
+                rSql = "--SqlServer新增字段" + "\r\n" + rSql;
+            }
+            if (rMsg != "")
+            {
+                rMsg = "--SqlServer新增注释" + "\r\n" + rMsg;
+            }
+            return rSql + "\r\n" +rMsg;
         }
         public string GetFieldType(string type)
         {
