@@ -35,31 +35,30 @@ namespace ScriptService
                 }
                 if (table != "" && Name != "" && type != "")
                 {
-                    rSql += @"declare  cnt number;
+                    rSql += @"declare  cnt number; tableExistedCount number;
 begin
-   SELECT COUNT(*) into cnt FROM cols WHERE table_name=UPPER('{0}') AND column_name=UPPER('{1}');
-   if cnt=0 then
-    execute immediate 'ALTER TABLE {0} ADD {1} {2} {4} {3}';
-  end if;
-  cnt:=0;
-end;"+"\r\n";
-                    rSql = string.Format(rSql, table, Name, type, isNull, def);
+    SELECT count(1) into tableExistedCount from ALL_TABLES  where TABLE_NAME = UPPER('{0}') ;
+    if tableExistedCount > 0 THEN
+       SELECT count(*) into cnt from cols WHERE TABLE_NAME=UPPER('{0}') AND column_name=UPPER('{1}');
+    if cnt=0 THEN
+       execute immediate 'ALTER TABLE {0} ADD {1} {2} {4} {3}';
+       {5}
+    end if;
+    end if;
+end;" + "\r\n" + "\r\n";
                     if (msg != "")
                     {
-                        rMsg += @"comment  on  column  {0}.{1} is '{2}';"+ "\r\n"+"";
+                        rMsg = @"execute immediate 'comment  on  column  {0}.{1} is ''{2}'' ';";
                         rMsg = string.Format(rMsg, table, Name, msg);
                     }
+                    rSql = string.Format(rSql, table, Name, type, isNull, def, rMsg);
                 }
             }
             if (rSql != "")
             {
                 rSql = "--Oracle新增字段" + "\r\n" + rSql;
             }
-            if (rMsg != "")
-            {
-                rMsg = "--Oracle新增注释" + "\r\n" + rMsg;
-            }
-            return rSql+ "\r\n"+rMsg;
+            return rSql;
         }
         public string GetFieldType(string type)
         {

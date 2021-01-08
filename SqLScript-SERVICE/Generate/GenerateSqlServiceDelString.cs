@@ -28,12 +28,14 @@ namespace ScriptService
                         bool flag = DbHelperSQL.TabExists(table);
                         if (!flag) { throw new Exception("表" + table + "不存在"); }
                     }
-                    rSql += "\r\n" + @"alter table {0} drop column {1}";
+                    rSql += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  alter table {0} drop column {1}" + "\r\n" + @" END" + "\r\n" + "\r\n";
                     rSql = string.Format(rSql, table, name);
                 }
             }
 
             return rSql == "" ? rSql : ("--SqlServer删除字段" + "\r\n" + rSql);
         }
+
+       
     }
 }

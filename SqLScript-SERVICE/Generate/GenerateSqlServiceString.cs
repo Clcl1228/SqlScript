@@ -35,14 +35,14 @@ namespace ScriptService
                 }
                 if (table != "" && name != "" && type != "")
                 {
-                    rSql +=  @"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}" + "\r\n" + @" END";
+                    rSql += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" +"IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ADD {1} {2} {3} {4} {6}" + "\r\n" + @" END" + "\r\n" + "\r\n";
                     if (msg == "")
                     {
                         bz = "";
                     }
                     else
                     {
-                        bz = "\r\n" + "execute sp_addextendedproperty N'MS_Description', '{2}', N'SCHEMA', N'dbo', N'table', N'{0}', N'COLUMN', N'{1}'";
+                        bz = "\r\n" + "  execute sp_addextendedproperty N'MS_Description', '{2}', N'SCHEMA', N'dbo', N'table', N'{0}', N'COLUMN', N'{1}'";
                         bz = String.Format(bz, table, name, msg);
                     }
                     rSql = string.Format(rSql, table, name, type, isNull, def, msg, bz);
@@ -53,11 +53,7 @@ namespace ScriptService
             {
                 rSql = "--SqlServer新增字段" + "\r\n" + rSql;
             }
-            if (rMsg != "")
-            {
-                rMsg = "--SqlServer新增注释" + "\r\n" + rMsg;
-            }
-            return rSql + "\r\n" +rMsg;
+            return rSql ;
         }
         public string GetFieldType(string type)
         {

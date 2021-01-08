@@ -30,7 +30,16 @@ namespace ScriptService
                         if (!flag) { throw new Exception("表" + table + "不存在"); }
                     }
                     
-                    rSql += @"alter table {0} drop column {1} ;" + "\r\n" + "";
+                    rSql += @"declare  cnt number; tableExistedCount number;
+begin
+    SELECT count(1) into tableExistedCount from ALL_TABLES  where TABLE_NAME = UPPER('{0}') ;
+    if tableExistedCount > 0 THEN
+       SELECT count(*) into cnt from cols WHERE TABLE_NAME=UPPER('{0}') AND column_name=UPPER('{1}');
+    if cnt>0 THEN
+       execute immediate 'alter table {0} drop column {1} ';
+    end if;
+    end if;
+end;" + "\r\n" + "\r\n";
                     rSql = string.Format(rSql, table, name);
                 }
             }

@@ -37,18 +37,22 @@ namespace ScriptService
                     if (item.Cells["字段类型"].Value.ToString() != "")
                     {
                         string type = item.Cells["字段类型"].Value == null ? "" : GetFieldType(item.Cells["字段类型"].Value.ToString());
-                        rSql += @"alter table {0} modify ({1} {2});" + "\r\n" + "";
+                        string rS = "alter table {0} modify ({1} {2})";
+                        rSql += GetSql(rS);
                         rSql = String.Format(rSql, table, name, type);
                     }
                     
                     if (msg != "")
                     {
-                        rMsg +=  "comment on column {0}.{1} is '{2}'"+ "\r\n";
+                        string rM = "comment on column {0}.{1} is ''{2}''";
+                        rMsg += GetSql(rM)  ;
                         rMsg = String.Format(rMsg, table, name, msg);
                     }
                     if (updateName != "")
                     {
-                        rUp += "alter table {0} rename column {1} to {2};"+ "\r\n";
+                        string rU = "alter table {0} rename column {1} to {2}";
+                        rUp += GetSql(rU);
+                        rUp += ""+ "\r\n";
                     }
                     rUp = String.Format(rUp, table, name, updateName);
                 }
@@ -70,6 +74,22 @@ namespace ScriptService
         public string GetFieldType(string type)
         {
             return fType.SqlToOracle(type.ToUpper());
+        }
+
+        public string GetSql(string sql)
+        {
+            string reSql= @"declare  cnt number; tableExistedCount number;
+begin
+    SELECT count(1) into tableExistedCount from ALL_TABLES  where TABLE_NAME = UPPER('{0}') ;
+    if tableExistedCount > 0 THEN
+       SELECT count(*) into cnt from cols WHERE TABLE_NAME=UPPER('{0}') AND column_name=UPPER('{1}');
+    if cnt>0 THEN
+       execute immediate '@SQL';
+    end if;
+    end if;
+end;" + "\r\n" + "\r\n";
+            reSql = reSql.Replace("@SQL", sql);
+            return reSql;
         }
     }
 }

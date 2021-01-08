@@ -35,7 +35,7 @@ namespace ScriptService
                     if (item.Cells["字段类型"].Value.ToString() != "")
                     {
                         string type = item.Cells["字段类型"].Value == null ? "" : GetFieldType(item.Cells["字段类型"].Value.ToString());
-                        rSql += @"alter table {0} alter column {1} {2}"+ "\r\n";
+                        rSql += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ALTER COLUMN {1} {2}" + "\r\n" +@" END" + "\r\n" + "\r\n";
                         rSql = String.Format(rSql, table, name, type);
                     }
                     
@@ -50,17 +50,18 @@ where objname = '{1}'
                         object value = DbHelperSQL.GetSingle(sql);
                         if(value!=null && value.ToString()== "MS_Description")
                         {
-                            rMsg += "EXECUTE sp_updateextendedproperty 'MS_Description', '{2}', 'SCHEMA', 'dbo', 'table', '{0}', 'column', '{1}'"+ "\r\n";
+                            rMsg += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  EXECUTE sp_updateextendedproperty 'MS_Description', '{2}', 'SCHEMA', 'dbo', 'table', '{0}', 'column', '{1}'" + "\r\n" + @" END" + "\r\n" + "\r\n";
+
                         }
                         else
                         {
-                            rMsg += "EXECUTE sp_addextendedproperty 'MS_Description', '{2}', 'SCHEMA', 'dbo', 'table', '{0}', 'column', '{1}'"+ "\r\n";
+                            rMsg += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  EXECUTE sp_addextendedproperty 'MS_Description', '{2}', 'SCHEMA', 'dbo', 'table', '{0}', 'column', '{1}'" + "\r\n" + @" END" + "\r\n" + "\r\n";
                         }
                         rMsg = String.Format(rMsg, table, name, msg);
                     }
                     if (updateName != "")
                     {
-                        rUp += "EXEC SP_RENAME '{0}.{1}','{2}'"+ "\r\n";
+                        rUp += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  EXEC SP_RENAME '{0}.{1}','{2}'" + "\r\n" + @" END" + "\r\n" + "\r\n";
                     }
                     rUp = String.Format(rUp, table, name, updateName);
                 }
