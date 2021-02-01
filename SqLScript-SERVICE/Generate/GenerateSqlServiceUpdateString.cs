@@ -35,7 +35,7 @@ namespace ScriptService
                     if (item.Cells["字段类型"].Value.ToString() != "")
                     {
                         string type = item.Cells["字段类型"].Value == null ? "" : GetFieldType(item.Cells["字段类型"].Value.ToString());
-                        rSql += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF NOT EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ALTER COLUMN {1} {2}" + "\r\n" +@" END" + "\r\n" + "\r\n";
+                        rSql += @"IF EXISTS( SELECT 1 FROM SYSOBJECTS T1 WHERE T1.NAME = '{0}' )" + "\r\n" + "IF  EXISTS (select name from syscolumns where id=object_id(N'{0}') AND NAME='{1}')" + "\r\n" + @" BEGIN" + "\r\n" + @"  ALTER TABLE {0} ALTER COLUMN {1} {2}" + "\r\n" +@" END" + "\r\n" + "\r\n";
                         rSql = String.Format(rSql, table, name, type);
                     }
                     
